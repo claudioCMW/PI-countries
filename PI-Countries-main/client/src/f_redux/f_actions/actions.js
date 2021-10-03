@@ -36,7 +36,7 @@ export async function getCountryId(id) {
 }
 
 //_________________________________________________________________________________GET NAME
-export async function getCountryId(name) {
+export async function getCountryName(name) {
   return async function (dispatch) {
     try {
       const resp = await axios.get(
