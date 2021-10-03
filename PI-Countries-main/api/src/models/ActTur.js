@@ -1,10 +1,11 @@
-const { DataTypes, UUID, UUIDV1, INTEGER, STRING } = require("sequelize");
+const { DataTypes, UUID, UUIDV1 } = require("sequelize");
+const { INTEGER, STRING}=DataTypes;
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "actTur",
+    "ActTur",
     {
       id: {
         type: UUID,
@@ -12,8 +13,9 @@ module.exports = (sequelize) => {
         defaultValue: UUIDV1,
       },
       name: {
-        type: DataTypes.STRING,
+        type: STRING,
         allowNull: false,
+        unique:true
       },
       difficulty: {
         type: INTEGER,
@@ -27,7 +29,9 @@ module.exports = (sequelize) => {
       },
       season: {
         type: STRING,
-        isIn: [["verano", "otoño", "invierno", "primavera"]],
+        validate: {
+          isIn: [["verano", "otoño", "invierno", "primavera"]],
+        },
       },
     },
     { timestamps: false }

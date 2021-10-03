@@ -5,7 +5,7 @@ const { STRING, INTEGER , FLOAT} = DataTypes;
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "countrie",
+    "Countrie",
     {
       id: {
         type: STRING,
@@ -17,8 +17,8 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       imgflat: {
-        allowNull: false,
-        type: STRING,
+          type: STRING,
+          allowNull: false,
       },
       continent: {
         type: STRING,
