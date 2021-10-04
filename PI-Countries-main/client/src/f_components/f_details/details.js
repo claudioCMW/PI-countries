@@ -6,25 +6,44 @@ require("./details.css");
 
 function Details(props) {
   const dispath = useDispatch();
-  const { id,countriesID } = props;
-  console.log(props)
+  const { id, countriesID } = props;
+  console.log(props);
   useEffect(() => {
     if (id) {
-      dispath(getCountryId(id))
+      dispath(getCountryId(id));
     }
   }, []);
 
   if (countriesID) {
-    const co = countriesID[0];
+    const { id, imgflat, name, continent, cap, area, poblation, ActTurs } =
+      countriesID[0];
+
+    console.log(ActTurs);
+    if (ActTurs.length > 0) {
+      const { name,difficulty, season, duration } = ActTurs[0];
+      const nam =name ;
+    }
     return (
       <div>
-        <h2>{co.id}</h2>
-        <h2>{co.name}</h2>
-        <h2>{co.continent}</h2>
-        <h2>{co.cap}</h2>
-        <h2>{co.area}</h2>
-        <h2>{co.poblation}</h2>
-        <img src={co.imgflat}/>
+        <h2>{id}</h2>
+        <h2>{name}</h2>
+        <h2>{continent}</h2>
+        <h2>{cap}</h2>
+        <h2>{area}</h2>
+        <h2>{poblation}</h2>
+        <h2>{}</h2>
+        <img src={imgflat} />
+        {ActTurs.length > 0 ? (
+          <div>
+            <h3>Actividad turistica</h3>  
+            <h1>{ActTurs[0].difficulty}</h1>
+            <h1>{ActTurs[0].season}</h1>
+            <h1>{ActTurs[0].duration}</h1>
+            <h1>{ActTurs[0].name}</h1>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     );
   } else {
