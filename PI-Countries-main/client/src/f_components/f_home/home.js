@@ -66,7 +66,7 @@ function Home({ state }) {
         </div>
         <div className="divRowColCountries">
           {country.map((ct) => (
-            <div className="div-comp-country" key={ct.id}>
+            <div  key={ct.id} className="div-comp-country">
               <Link to={`/home/details/${ct.id}`}>
                 <h4>{ct.name}</h4>
               </Link>

@@ -4,7 +4,8 @@ const _enum = new Enum();
 
 const initialState = {
   countries: null,
-  countriesNAME_ID: null,
+  countriesNAME: null,
+  countriesID:null
 };
 
 function reducerRoot(state = initialState, action) {
@@ -20,31 +21,33 @@ function reducerRoot(state = initialState, action) {
     case _enum.GET_COUNTRY_ID:
       return {
         ...state,
-        countriesNAME_ID: action.payload,
+        countriesID: action.payload,
       };
 
     //____________________________________________________GET NAME
     case _enum.GET_COUNTRY_NAME:
       return {
         ...state,
-        countriesNAME_NAME: action.payload,
+        countriesNAME: action.payload,
       };
     //_______________________________________________________ORDER ASC
     case _enum.ORDER:
-     const {countries}=state;
-      var array = [];
+      var aux;
+      var array = state.countries.map((e) => e);
 
-      for (var i = 0; i < countries.length - 1; i++) {
-        for (var j = i + 1; j < countries.length; j++) {
+      for (var i = 0; i < array.length - 1; i++) {
+        for (var j = i + 1; j < array.length; j++) {
           if (action.payload === "asc") {
-            if (countries[i].name > countries[j].name) {
-              array[j] = countries[i];
-              array[i] = countries[j];
+            if (array[i].name > array[j].name) {
+              aux = array[j];
+              array[j] = array[i];
+              array[i] = aux;
             }
           } else {
-            if (countries[i].name < countries[j].name) {
-              array[j] = countries[i];
-              array[i] = countries[j];
+            if (array[i].name < array[j].name) {
+              aux = array[j];
+              array[j] = array[i];
+              array[i] = aux;
             }
           }
         }

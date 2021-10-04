@@ -28,7 +28,7 @@ export async function addCountries(activity) {
   }
 }
 //_________________________________________________________________________________GET ID
-export async function getCountryId(id) {
+export function getCountryId(id) {
   return async function (dispatch) {
     try {
       const resp = await axios.get(`http://localhost:3001/countries/${id}`);
@@ -40,7 +40,7 @@ export async function getCountryId(id) {
 }
 
 //_________________________________________________________________________________GET NAME
-export async function getCountryName(name) {
+export function getCountryName(name) {
   return async function (dispatch) {
     try {
       const resp = await axios.get(

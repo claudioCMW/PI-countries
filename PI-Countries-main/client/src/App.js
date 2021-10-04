@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Route exact path="/" component={Principal}></Route>
       <Route exact path="/home" component={Home}></Route>
-      <Route exact path="/home/details" component={Details}></Route>
+      <Route exact path="/home/details/:id" render={({match})=><Details id={match.params.id}></Details>}></Route>
       <Route exact path="/home/createActivity" component={AddActivity}></Route>
     </div>
   );
