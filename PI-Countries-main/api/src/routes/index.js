@@ -47,7 +47,6 @@ router.get("/countries", (req, res, next) => {
   } else {
     Countrie.findAll({ include: ActTur })
       .then((res) => {
-        console.log(res);
         return res.map((elem) => {
           return {
             ...elem.dataValues,

@@ -1,0 +1,26 @@
+.homeDiv {
+  width: 1920px;
+  height: 1080px;
+  display: grid;
+  grid-template-rows: 15% 7% 78%;
+  background-color: rgb(240, 112, 112);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.div-comp-country {
+  width: 150px;
+  height: 200px;
+}
+.imgFlat {
+  height: 100px;
+  width: 100px;
+}
+.divRowColCountries {
+  display: grid;
+  grid-template-columns: 43% 43% 43%;
+  grid-template-rows: 43% 43% 43%;
+  margin: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
