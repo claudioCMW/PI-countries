@@ -18,11 +18,6 @@ function Details(props) {
     const { id, imgflat, name, continent, cap, area, poblation, ActTurs } =
       countriesID[0];
 
-    console.log(ActTurs);
-    if (ActTurs.length > 0) {
-      const { name,difficulty, season, duration } = ActTurs[0];
-      const nam =name ;
-    }
     return (
       <div>
         <h2>{id}</h2>

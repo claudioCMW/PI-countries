@@ -9,9 +9,13 @@ require("./nav.css");
 export default function Nav(){
 
     return (<header>
-            <nav>
-                <h3>nav</h3>
-            </nav>
+           <div >
+               <form onSubmit={()=>{}}>
+                   <input value=""></input>
+                   <button type="submit">BUSCAR</button>
+               </form>
+
+           </div>
     </header>
     )
 }
