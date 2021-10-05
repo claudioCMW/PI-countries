@@ -4,8 +4,8 @@ const _enum = new Enum();
 
 const initialState = {
   countries: null,
-  countriesNAME: null,
-  countriesID:null
+  countriesNAME_ID: null,
+
 };
 
 function reducerRoot(state = initialState, action) {
@@ -21,14 +21,14 @@ function reducerRoot(state = initialState, action) {
     case _enum.GET_COUNTRY_ID:
       return {
         ...state,
-        countriesID: action.payload,
+        countriesNAME_ID: action.payload,
       };
 
     //____________________________________________________GET NAME
     case _enum.GET_COUNTRY_NAME:
       return {
         ...state,
-        countriesNAME: action.payload,
+        countriesNAME_ID: action.payload,
       };
     //_______________________________________________________ORDER ASC
     case _enum.ORDER:

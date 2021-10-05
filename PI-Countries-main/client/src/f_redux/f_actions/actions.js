@@ -32,7 +32,11 @@ export function getCountryId(id) {
   return async function (dispatch) {
     try {
       const resp = await axios.get(`http://localhost:3001/countries/${id}`);
-      return dispatch({ type: _enum.GET_COUNTRY_ID, payload: resp.data });
+      if (resp.data.length > 0) {
+        return dispatch({ type: _enum.GET_COUNTRY_ID, payload: resp.data });
+      } else {
+        return dispatch({ type: _enum.GET_COUNTRY_ID, payload: null });
+      }
     } catch (e) {
       return new Error(e);
     }
@@ -46,7 +50,11 @@ export function getCountryName(name) {
       const resp = await axios.get(
         `http://localhost:3001/Countries?name=${name}`
       );
-      return dispatch({ type: _enum.GET_COUNTRY_NAME, payload: resp.data });
+      if (resp.data.length > 0) {
+        return dispatch({ type: _enum.GET_COUNTRY_NAME, payload: resp.data });
+      } else {
+        return dispatch({ type: _enum.GET_COUNTRY_NAME, payload: null });
+      }
     } catch (e) {
       return new Error(e);
     }
