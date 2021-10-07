@@ -64,8 +64,7 @@ export function getCountryName(name) {
 export function allCountries() {
   return async function () {
     try {
-      const result = await axios.get("http://localhost:3001/allCountries");
-      const countries = result.data;
+      await axios.get("http://localhost:3001/allCountries");
     } catch (e) {
       return new Error(e);
     }

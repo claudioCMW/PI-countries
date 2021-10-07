@@ -141,7 +141,7 @@ router.get("/allCountries", async (req, res, next) => {
         return Countrie.create({
           name: elem.name.common.toLowerCase(),
           id: elem.ccn3 || elem.ccn2 || elem.cca3 || elem.cioc,
-          imgflat: elem.flags[0],
+          imgflat: elem.flags[1],
           continent: elem.region,
           cap: elem.capital ? elem.capital.toString() : "No found capital",
           subRegion: elem.subregion,

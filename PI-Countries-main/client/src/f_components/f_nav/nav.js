@@ -1,14 +1,12 @@
-import { useDispatch } from "react-redux";
-import React, { createFactory, useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router";
-import { getCountryId, getCountryName } from "../../f_redux/f_actions/actions";
+
 
 require("./nav.css");
 
 export default function Nav() {
   var [input, setInput] = useState("");
-  var dispatch = useDispatch();
   var history = useHistory();
   //______________________________________________________
   function validate(value) {

@@ -14,6 +14,7 @@ function Home({ state }) {
   var country;
   useEffect(() => {
     dispatch(getCountries());
+ 
   }, []);
   //______________________________________________________
   function changePag(e) {
