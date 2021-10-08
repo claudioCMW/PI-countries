@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router";
 
-
 require("./nav.css");
 
 export default function Nav() {
@@ -10,16 +9,18 @@ export default function Nav() {
   var history = useHistory();
   //______________________________________________________
   function validate(value) {
-    setInput(value.toLowerCase().replace(" ", ""));
-
-    if (value.length > 3 && value.length <= 20) {
-      var newValue = "";
-      for (var i = 0; i < value.length; i++) {
-        if (!parseInt(value[i])) {
-          newValue += value[i];
+    if (value.length < 20) {
+      if (value.length > 3) {
+        var newValue = "";
+        for (var i = 0; i < value.length; i++) {
+          if (!parseInt(value[i]) && value[i] !== "0") {
+            newValue += value[i];
+          }
         }
+        setInput(newValue);
+      } else {
+        setInput(value.toLowerCase().replace(" ", ""));
       }
-      setInput(newValue);
     }
   }
 
@@ -33,23 +34,29 @@ export default function Nav() {
     }
   }
   //____________________________________________________________
-  function createFactory(){
-       history.push("/home/createActivity");
+  function createFactory() {
+    history.push("/home/createActivity");
   }
   //___________________________________________________________________
   return (
     <header>
-      <div>
+      <div className="div-nav">
         <form onSubmit={(e) => handleSubmit(e)}>
-          <input
-            value={input}
-            onInput={(e) => validate(e.target.value)}
-          ></input>
-          <button type="submit">BUSCAR</button>
+          <div className="div-form-inp-but">
+            <input
+              className="input-nav"
+              value={input}
+              onInput={(e) => validate(e.target.value)}
+            ></input>
+            <button className="button-input-nav" type="submit"></button>
+          </div>
         </form>
-        <div>
+        <div></div>
+        <div className="div-createAct">
           <h3>Crear actividad</h3>
-          <button onClick={()=>createFactory()}>CREAR</button>
+          <button className="button-create-nav" onClick={() => createFactory()}>
+      
+          </button>
         </div>
       </div>
     </header>

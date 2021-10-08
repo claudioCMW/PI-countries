@@ -1,0 +1,28 @@
+.div-addAct {
+  background-color: rgb(17, 13, 29);
+  overflow: hidden;
+  width: 1920px;
+  height: 935px;
+}
+
+.div-set-data{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: auto;
+    margin-top: 40px;
+    width: 1000px;
+    height: 850px;
+    background: url("../../f_img/gps.jpg");
+    border: 1px solid rgb(5, 5, 5);
+    border-radius: 1.2em;
+}
+
+
+.data-enter-left{
+    display: grid;
+
+}
+
+.div-out-right{
+    display: grid;
+}

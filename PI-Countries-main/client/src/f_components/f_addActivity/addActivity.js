@@ -2,18 +2,15 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { _order } from "../../f_redux/f_actions/actions";
+import { addActi, _order } from "../../f_redux/f_actions/actions";
 require("./addActivity.css");
 
 function AddActivity(props) {
   const history = useHistory();
   const { countries } = props;
   const dispath = useDispatch();
-  useEffect(() => {
-    if (countries) {
-      dispath(_order("asc"));
-    }
-  }, []);
+
+  var [errors, setErrors] = useState({ input: "", act_enviar: true }); //valida y activa input/enviar
 
   var [state, setState] = useState({
     name: "",
@@ -21,21 +18,26 @@ function AddActivity(props) {
     season: "",
     countries: [],
   });
+  useEffect(() => {
+    if (countries) {
+      dispath(_order("asc"));
+    }
+  }, []);
+  //______________________________________cambios en los campos
+  useEffect(() => {
+    validate({ value: "", name: "" });
+  }, [state]);
 
   //_______________________________________________________
   function validate({ value, name }) {
     if (name === "input") {
-      if (value !== "" || value !== " ") {
-        setState({ ...state, name: value.toLowerCase() });
-        if (value.length > 50) {
-          setState({ ...state, name: value.slice(0, 50) });
-        }
-      } else {
-        alert("rellenar campo");
+      setErrors({ ...errors, input: "" });
+      setState({ ...state, name: value.toLowerCase() });
+      if (value.length > 50) {
+        setState({ ...state, name: value.slice(0, 50) });
       }
     }
     if (name === "select") {
-      console.log(value);
       if (state.countries.includes(value)) {
         setState({
           ...state,
@@ -56,84 +58,115 @@ function AddActivity(props) {
         setState({ ...state, duration: state.duration - 1 });
       }
     }
+    //_______________________________________________________aciva el button enviar
+    const { season, duration, countries } = state;
+    if (
+      state.name !== "" &&
+      season !== "" &&
+      duration > 0 &&
+      countries.length > 0
+    ) {
+      setErrors({ ...errors, act_enviar: false });
+    }
   }
   //____________________________________________________________________________submit
   function handleSubmit(e) {
-         e.preventDefault()
-       
+    e.preventDefault();
+    dispath(addActi(state));
+    setState({
+      name: "",
+      duration: 0,
+      season: "",
+      countries: [],
+    });
+    alert("created");
+    (() => history.push("/home"))();
   }
-//__________________________________________________________________________________
+  //__________________________________________________________________________________
   function valida(e) {
-  
     if (e.value === "") {
-      alert("error");
+      setErrors({ ...errors, input: "campo obligatorio", act_enviar: true });
     }
   }
   //_____________________________________________________________________
   if (countries) {
     return (
-      <div>
-        <h3>name</h3>
-        <input
-          value={state.name}
-          name="input"
-          onBlur={(e) => valida(e.target)}
-          onChange={(e) => validate(e.target)}
-        ></input>
-        <h3>duracion</h3>
-        <div>
-          <button name="mas" onClick={(e) => validate(e.target)}>
-            +
-          </button>
-          <button name="menos" onClick={(e) => validate(e.target)}>
-            -
-          </button>
-        </div>
-        <h3>temporada</h3>
-        <div>
-          <button
-            name="invierno"
-            onClick={(e) => setState({ ...state, season: e.target.name })}
-          >
-            invierno
-          </button>
-          <button
-            name="verano"
-            onClick={(e) => setState({ ...state, season: e.target.name })}
-          >
-            verano
-          </button>
-          <button
-            name="otoño"
-            onClick={(e) => setState({ ...state, season: e.target.name })}
-          >
-            otoño
-          </button>
-          <button
-            name="primavera"
-            onClick={(e) => setState({ ...state, season: e.target.name })}
-          >
-            primavera
-          </button>
-        </div>
-        <h3> ciudad</h3>
-        <select
-          name="select"
-          onChange={(e) => {
-            validate(e.target);
-          }}
-        >
-          {countries.map((coun) => (
-            <option key={coun.id} value={coun.name}>
-              {coun.name}
-            </option>
-          ))}
-        </select>
+      <div className="div-addAct">
+        <div className="div-set-data">
+          <div className="data-enter-left">
+            <h3>name</h3>
+            <h3>duracion</h3>
+            <h3>temporada</h3>
+            <h3> ciudad</h3>
+          </div>
 
-        <form onSubmit={() => {}}>
+          <div className="div-out-right">
+            <input
+              value={state.name}
+              name="input"
+              onBlur={(e) => valida(e.target)}
+              placeholder={errors.input}
+              onChange={(e) => validate(e.target)}
+            ></input>
+           
 
-          <button type="submit" disabled={false}>ENVIAR</button>
-        </form>
+            <div>
+              <button name="mas" onClick={(e) => validate(e.target)}>
+                +
+              </button>
+              <button name="menos" onClick={(e) => validate(e.target)}>
+                -
+              </button>
+            </div>
+            <div>
+              <button
+                name="invierno"
+                onClick={(e) => setState({ ...state, season: e.target.name })}
+              >
+                invierno
+              </button>
+              <button
+                name="verano"
+                onClick={(e) => setState({ ...state, season: e.target.name })}
+              >
+                verano
+              </button>
+              <button
+                name="otoño"
+                onClick={(e) => setState({ ...state, season: e.target.name })}
+              >
+                otoño
+              </button>
+              <button
+                name="primavera"
+                onClick={(e) => setState({ ...state, season: e.target.name })}
+              >
+                primavera
+              </button>
+            </div>
+            <select
+              name="select"
+              onChange={(e) => {
+                validate(e.target);
+              }}
+            >
+              {countries.map((coun) => (
+                <option key={coun.id} value={coun.name}>
+                  {coun.name}
+                </option>
+              ))}
+            </select>
+            <form
+              onSubmit={(e) => {
+                handleSubmit(e);
+              }}
+            >
+              <button type="submit" disabled={errors.act_enviar}>
+                ENVIAR
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   } else {

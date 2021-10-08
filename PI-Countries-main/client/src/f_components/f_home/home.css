@@ -1,26 +1,99 @@
 .homeDiv {
   width: 1920px;
-  height: 1080px;
+  height: 1600px;
   display: grid;
-  grid-template-rows: 15% 7% 78%;
-  background-color: rgb(240, 112, 112);
+  grid-template-rows: 5% 5% auto;
+  background: url("../../f_img/fondo2kPaises5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 .div-comp-country {
-  width: 150px;
-  height: 200px;
+  margin: auto;
+  margin-top: 4em;
+  width: 400px;
+  height: 400px;
+  display: grid;
+  background: url("../../f_img/fondoDiv.png");
+  grid-template-rows: 70% 15% 15%;
+  border: 2px solid rgb(7, 6, 19);
+  box-shadow: 10px 15px 1.6em rgb(17, 15, 44);
+  border-radius: 0.4em;
+  transition-duration: 0.3s;
+}
+.div-comp-country:hover{
+     box-shadow: 10px 15px 1.6em rgb(202, 7, 7);
+
 }
 .imgFlat {
-  height: 100px;
-  width: 100px;
+  height: 270px;
+  width: 350px;
+  border-radius: 0.5em;
+  margin: auto;
+  margin-top: 1em;
+
 }
 .divRowColCountries {
   display: grid;
-  grid-template-columns: 43% 43% 43%;
-  grid-template-rows: 43% 43% 43%;
-  margin: center;
-  margin-left: 10%;
-  margin-right: 10%;
+  overflow: hidden;
+  width: 1500px;
+  height: auto;
+  grid-template-columns: 33% 33% 33%;
+  margin: auto;
+  margin-top: -30px;
+}
+
+.divButtonsPage {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  margin: auto;
+  margin-left: 850px;
+  width: 450px;
+  height: 40px;
+}
+.opciones-Select {
+  color: rgb(218, 214, 230);
+  font-size: 1.1em;
+  border-radius: 1.2em;
+}
+.select {
+  background: rgb(20, 18, 18);
+  color: rgb(220, 220, 235);
+  border-radius: 0.2em;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "comic sans ms";
+  border: 2px solid rgb(211, 211, 226);
+  box-shadow: 10px 12px 0.7em rgb(184, 181, 214);
+    transition-duration: 0.3s;
+}
+.select:hover{
+    box-shadow: 10px 12px 0.7em rgb(230, 32, 32);
+}
+
+.button-sig-ant {
+  background: rgb(20, 18, 18);
+  color: rgb(220, 220, 235);
+  border-radius: 0.2em;
+  font-size: 2em;
+  border: 2px solid rgb(218, 217, 240);
+  box-shadow: 10px 12px 0.7em rgb(184, 181, 214);
+  transition-duration: 0.3s;
+}
+.button-sig-ant:hover{
+   box-shadow: 10px 12px 0.7em rgb(230, 32, 32);
+}
+
+h4{
+    text-decoration: none;
+    color: rgb(236, 229, 218);
+     font-size: 1.2em;
+     font-family: "comic sans ms";
+     transition-duration: 0.3s;
+}
+
+
+.link-home{
+    text-decoration: none;
 }

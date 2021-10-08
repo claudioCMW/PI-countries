@@ -1,10 +1,7 @@
 import { connect, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 
-import {
-  getCountryId,
-  getCountryName,
-} from "../../f_redux/f_actions/actions";
+import { getCountryId, getCountryName } from "../../f_redux/f_actions/actions";
 import search from "../../f_img/search gif.gif";
 require("./details.css");
 
@@ -12,7 +9,6 @@ function Details(props) {
   const dispath = useDispatch();
   const { id, countriesNAME_ID } = props;
   useEffect(() => {
-
     if (id.length > 3) {
       dispath(getCountryName(id));
     } else {
@@ -48,13 +44,17 @@ function Details(props) {
                   <h2>{}</h2>
                   <img src={imgflat} />
                   {ActTurs.length > 0 ? (
-                    <div>
+                    <ul>
                       <h3>Actividad turistica</h3>
-                      <h1>{ActTurs[0].difficulty}</h1>
-                      <h1>{ActTurs[0].season}</h1>
-                      <h1>{ActTurs[0].duration}</h1>
-                      <h1>{ActTurs[0].name}</h1>
-                    </div>
+                      {ActTurs.map((e) => (
+                        <div className="div-activity">
+                          <li>{e.difficulty}</li>
+                          <li>{e.season}</li>
+                          <li>{e.duration}</li>
+                          <li>{e.name}</li>
+                        </div>
+                      ))}
+                    </ul>
                   ) : (
                     <></>
                   )}

@@ -28,8 +28,8 @@ function Home({ state }) {
   }
   //_________________________________________________________
   function orderCountries(e) {
-    const { name } = e.target;
-    if (name === "asc") {
+    const { value } = e.target;
+    if (value === "asc") {
       dispatch(_order("asc"));
     } else {
       dispatch(_order("des"));
@@ -44,37 +44,60 @@ function Home({ state }) {
         <Nav></Nav>
         <div className="divButtonsPage">
           {pag === 0 ? (
-            <></>
+            <button hidden={true}></button>
           ) : (
-            <button name="ant" onClick={(e) => changePag(e)}>
+            <button
+              className="button-sig-ant"
+              name="ant"
+              onClick={(e) => changePag(e)}
+            >
               {"<<"}
             </button>
           )}
           {pag + 9 > countries.length ? (
-            <></>
+            <button hidden={true} ></button>
           ) : (
-            <button name="sig" onClick={(e) => changePag(e)}>
+            <button
+              className="button-sig-ant"
+              name="sig"
+              onClick={(e) => changePag(e)}
+            >
               {">>"}
             </button>
           )}
 
-          <button name="asc" onClick={(e) => orderCountries(e)}>
-            A-Z
-          </button>
-          <button name="des" onClick={(e) => orderCountries(e)}>
-            Z-A
-          </button>
+          <select
+            className="select"
+            name="select"
+            onChange={(e) => orderCountries(e)}
+          >
+            <option  disabled selected>
+              orden
+            </option>
+            <option className="opciones-Select" value="asc">
+              a-z
+            </option>
+            <option className="opciones-Select" value="des">
+              z-a
+            </option>
+            <option className="opciones-Select" value="cont">
+              continente
+            </option>
+            <option className="opciones-Select" value="actividad">
+              actividad
+            </option>
+          </select>
         </div>
         <div className="divRowColCountries">
           {country.map((ct) => (
-            <div  key={ct.id} className="div-comp-country">
-              <Link to={`/home/details/${ct.id}`}>
-                <h4>{ct.name}</h4>
-              </Link>
-              <h4>{ct.continent}</h4>
-              <Link to={`/home/details/${ct.id}`}>
+            <div key={ct.id} className="div-comp-country">
+              <Link  to={`/home/details/${ct.id}`}>
                 <img className="imgFlat" src={ct.imgflat} alt=""></img>
               </Link>
+              <Link className="link-home" to={`/home/details/${ct.id}`}>
+                <h4>{`Name:${ct.name.toUpperCase()}`}</h4>
+              </Link>
+              <h4>{`Continente:${ct.continent.toUpperCase()}`}</h4>
             </div>
           ))}
         </div>

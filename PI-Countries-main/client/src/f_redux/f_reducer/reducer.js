@@ -5,7 +5,6 @@ const _enum = new Enum();
 const initialState = {
   countries: null,
   countriesNAME_ID: null,
-
 };
 
 function reducerRoot(state = initialState, action) {
@@ -43,7 +42,8 @@ function reducerRoot(state = initialState, action) {
               array[j] = array[i];
               array[i] = aux;
             }
-          } else {
+          }
+          if (action.payload === "des") {
             if (array[i].name < array[j].name) {
               aux = array[j];
               array[j] = array[i];

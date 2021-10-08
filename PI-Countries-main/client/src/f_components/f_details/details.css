@@ -1,0 +1,8 @@
+ul{
+   list-style: none; 
+}
+.div-activity{
+    background-color: brown;
+    display: grid;
+    grid-template-rows: 10% 10% 10% 10% 10%;
+}

@@ -5,6 +5,7 @@ import Principal from "./f_components/f_principal/principal";
 import Home from "./f_components/f_home/home";
 import Details from "./f_components/f_details/details";
 import AddActivity from "./f_components/f_addActivity/addActivity";
+require("../src/App.css")
 function App() {
   return (
     <div className="App">

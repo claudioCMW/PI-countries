@@ -1,0 +1,59 @@
+.div-nav {
+  display: grid;
+  background-color: rgb(8, 8, 20);
+  grid-template-columns: 20% 60% 20%;
+  border: 2px solid rgb(56, 46, 199);
+  box-shadow: 0em 1px 0.9em rgb(108, 83, 216);
+  border-radius: 0.5em;
+}
+.input-nav {
+  width: auto;
+  height: auto;
+  margin-top: 0.2em;
+  color: rgb(16, 8, 128);
+  border-radius: 0.4em;
+  font-size: 25px;
+  font-family: "comic sans ms";
+}
+.button-input-nav {
+  background: url("../../f_img/1.png");
+  border: 4px solid rgb(5, 5, 5);
+  margin-top: 0.2em;
+  width: 50px;
+  height: 50px;
+  border-radius: 20em;
+  cursor: pointer;
+  font-family: "comic sans ms";
+}
+.div-createAct {
+  margin-top: -3px;
+  margin-bottom: -0.1em;
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+.button-create-nav {
+  margin-top: 7px;
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 3em;
+  border: 1px solid rgb(5, 5, 5);
+  background: url("../../f_img/create.png");
+  cursor: pointer;
+}
+
+.div-form-inp-but {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: auto;
+  width: auto;
+  height: auto;
+}
+h3 {
+  color: blanchedalmond;
+  font-family: "comic sans ms";
+ 
+}
+

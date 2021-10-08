@@ -19,13 +19,15 @@ export function getCountries() {
   };
 }
 
-//__________________________________________________________________POST
-export async function addCountries(activity) {
-  try {
-    return axios.post("http://localhost:3001/activity", activity);
-  } catch (e) {
-    return new Error(e);
-  }
+//___________________________________________________________________
+export function addActi(activity) {
+  return async () => {
+    try {
+      return await axios.post("http://localhost:3001/activity", activity);
+    } catch (err) {
+      return new Error(err);
+    }
+  };
 }
 //_________________________________________________________________________________GET ID
 export function getCountryId(id) {
