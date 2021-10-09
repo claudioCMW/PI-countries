@@ -25,7 +25,7 @@ function AddActivity(props) {
   }, []);
   //______________________________________cambios en los campos
   useEffect(() => {
-    validate({ value: "", name: "" });
+    validate({ value: "l", name: "" });
   }, [state]);
 
   //_______________________________________________________
@@ -33,8 +33,12 @@ function AddActivity(props) {
     if (name === "input") {
       setErrors({ ...errors, input: "" });
       setState({ ...state, name: value.toLowerCase() });
-      if (value.length > 50) {
-        setState({ ...state, name: value.slice(0, 50) });
+      if (state.name === "") {
+        setErrors({ ...errors, act_enviar: true });
+      } else {
+        if (value.length > 50) {
+          setState({ ...state, name: value.slice(0, 50) });
+        }
       }
     }
     if (name === "select") {
@@ -49,25 +53,28 @@ function AddActivity(props) {
     }
 
     if (name === "mas") {
-      if (state.duration >= 0 && state.duration <= 30) {
+      if (state.duration >= 0 ) {
         setState({ ...state, duration: state.duration + 1 });
       }
     }
     if (name === "menos") {
-      if (state.duration >= 1 && state.duration <= 30) {
+      if (state.duration >= 1 ) {
         setState({ ...state, duration: state.duration - 1 });
       }
     }
     //_______________________________________________________aciva el button enviar
-    const { season, duration, countries } = state;
-    if (
-      state.name !== "" &&
-      season !== "" &&
-      duration > 0 &&
-      countries.length > 0
-    ) {
-      setErrors({ ...errors, act_enviar: false });
-    }
+
+  
+      const { season, duration, countries } = state;
+      if (
+        state.name !== "" &&
+        season !== "" &&
+        duration > 0 &&
+        countries.length > 0
+      ) {
+        setErrors({ ...errors, act_enviar: false });
+      }
+    
   }
   //____________________________________________________________________________submit
   function handleSubmit(e) {
@@ -79,7 +86,7 @@ function AddActivity(props) {
       season: "",
       countries: [],
     });
-    alert("created");
+    alert("Actividad Creada.");
     (() => history.push("/home"))();
   }
   //__________________________________________________________________________________
@@ -94,76 +101,92 @@ function AddActivity(props) {
       <div className="div-addAct">
         <div className="div-set-data">
           <div className="data-enter-left">
-            <h3>name</h3>
-            <h3>duracion</h3>
-            <h3>temporada</h3>
-            <h3> ciudad</h3>
+            <h3>Nombre:</h3>
+            <h3>Duraciòn:</h3>
+            <h3>Temporada:</h3>
+            <h3>Ciudad:</h3>
           </div>
 
           <div className="div-out-right">
             <input
+              autocomplete="none"
+              className="input"
               value={state.name}
               name="input"
               onBlur={(e) => valida(e.target)}
               placeholder={errors.input}
               onChange={(e) => validate(e.target)}
             ></input>
-           
 
-            <div>
-              <button name="mas" onClick={(e) => validate(e.target)}>
+            <div className="div-mas-menos">
+              <button
+                className="button-mas-mas"
+                name="mas"
+                onClick={(e) => validate(e.target)}
+                >
                 +
               </button>
-              <button name="menos" onClick={(e) => validate(e.target)}>
-                -
+              <button
+                className="button-mas-menos"
+                name="menos"
+                onClick={(e) => validate(e.target)}
+                >
+                
               </button>
+                  <h3 className="h3-horas">{state.duration} horas</h3>
             </div>
-            <div>
-              <button
-                name="invierno"
-                onClick={(e) => setState({ ...state, season: e.target.name })}
-              >
-                invierno
-              </button>
-              <button
-                name="verano"
-                onClick={(e) => setState({ ...state, season: e.target.name })}
-              >
-                verano
-              </button>
-              <button
-                name="otoño"
-                onClick={(e) => setState({ ...state, season: e.target.name })}
-              >
-                otoño
-              </button>
-              <button
-                name="primavera"
-                onClick={(e) => setState({ ...state, season: e.target.name })}
-              >
-                primavera
-              </button>
-            </div>
+
             <select
+              className="selectt"
+              onChange={(e) => {
+                setState({ ...state, season: e.target.value });
+              }}
+            >
+              <option disabled selected>
+                seleccionar temporada
+              </option>
+              <option className="optionss" value="verano">
+                verano
+              </option>
+              <option className="optionss" value="otoño">
+                otoño
+              </option>
+              <option className="optionss" value="invierno">
+                invierno
+              </option>
+              <option className="optionss" value="primavera">
+                primavera
+              </option>
+            </select>
+
+            <select
+              className="selectt"
               name="select"
               onChange={(e) => {
                 validate(e.target);
               }}
             >
+              <option disabled selected>
+                seleccionar pais
+              </option>
               {countries.map((coun) => (
-                <option key={coun.id} value={coun.name}>
+                <option className="optionss" key={coun.id} value={coun.name}>
                   {coun.name}
                 </option>
               ))}
             </select>
+          </div>
+          <div className="send-data">
             <form
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
             >
-              <button type="submit" disabled={errors.act_enviar}>
-                ENVIAR
-              </button>
+              <button
+                className={errors.act_enviar ? "button-send2" : "button-send"}
+                type="submit"
+                disabled={errors.act_enviar}
+              ></button>
             </form>
           </div>
         </div>

@@ -14,7 +14,6 @@ function Home({ state }) {
   var country;
   useEffect(() => {
     dispatch(getCountries());
- 
   }, []);
   //______________________________________________________
   function changePag(e) {
@@ -29,10 +28,20 @@ function Home({ state }) {
   //_________________________________________________________
   function orderCountries(e) {
     const { value } = e.target;
-    if (value === "asc") {
-      dispatch(_order("asc"));
-    } else {
-      dispatch(_order("des"));
+
+    switch (value) {
+      case "asc":
+        dispatch(_order("asc"));
+        break;
+      case "des":
+        dispatch(_order("des"));
+        break;
+      case "cont":
+        break;
+      case "area":
+        break;
+      case "act":
+        break;
     }
   }
 
@@ -55,7 +64,7 @@ function Home({ state }) {
             </button>
           )}
           {pag + 9 > countries.length ? (
-            <button hidden={true} ></button>
+            <button hidden={true}></button>
           ) : (
             <button
               className="button-sig-ant"
@@ -71,7 +80,7 @@ function Home({ state }) {
             name="select"
             onChange={(e) => orderCountries(e)}
           >
-            <option  disabled selected>
+            <option disabled selected>
               orden
             </option>
             <option className="opciones-Select" value="asc">
@@ -91,7 +100,7 @@ function Home({ state }) {
         <div className="divRowColCountries">
           {country.map((ct) => (
             <div key={ct.id} className="div-comp-country">
-              <Link  to={`/home/details/${ct.id}`}>
+              <Link to={`/home/details/${ct.id}`}>
                 <img className="imgFlat" src={ct.imgflat} alt=""></img>
               </Link>
               <Link className="link-home" to={`/home/details/${ct.id}`}>
