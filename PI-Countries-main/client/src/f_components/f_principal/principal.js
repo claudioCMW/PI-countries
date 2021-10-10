@@ -1,20 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { allCountries } from "../../f_redux/f_actions/actions";
-import img from "../../f_img/fondo2kPaises.jpg";
-require("../f_principal/principal.css")
+import {
+  allCountries,
+  getCountries,
+  _order,
+} from "../../f_redux/f_actions/actions";
+
+require("../f_principal/principal.css");
 
 export default function Principal() {
   const dispatch = useDispatch();
   const history = useHistory();
   useEffect(() => {
     dispatch(allCountries());
+    dispatch(getCountries());
   }, []);
 
   return (
     <div className="divPrincipal">
-      <button onClick={() => history.push("/home")}>ENTRAR</button>
+      <button
+        className="button-ingresar"
+        onClick={() => history.push("/home")}
+      ></button>
+      <h4 className="h4">BIENVENIDO</h4>
     </div>
   );
 }

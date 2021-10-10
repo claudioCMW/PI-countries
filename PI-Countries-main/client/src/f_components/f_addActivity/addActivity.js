@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { addActi, _order } from "../../f_redux/f_actions/actions";
+import { addActi, getCountries, _order } from "../../f_redux/f_actions/actions";
 require("./addActivity.css");
 
 function AddActivity(props) {
@@ -23,9 +23,10 @@ function AddActivity(props) {
       dispath(_order("asc"));
     }
   }, []);
+
   //______________________________________cambios en los campos
   useEffect(() => {
-    validate({ value: "l", name: "" });
+    validate({ value: "", name: "" });
   }, [state]);
 
   //_______________________________________________________
@@ -53,28 +54,26 @@ function AddActivity(props) {
     }
 
     if (name === "mas") {
-      if (state.duration >= 0 ) {
+      if (state.duration >= 0) {
         setState({ ...state, duration: state.duration + 1 });
       }
     }
     if (name === "menos") {
-      if (state.duration >= 1 ) {
+      if (state.duration >= 1) {
         setState({ ...state, duration: state.duration - 1 });
       }
     }
     //_______________________________________________________aciva el button enviar
 
-  
-      const { season, duration, countries } = state;
-      if (
-        state.name !== "" &&
-        season !== "" &&
-        duration > 0 &&
-        countries.length > 0
-      ) {
-        setErrors({ ...errors, act_enviar: false });
-      }
-    
+    const { season, duration, countries } = state;
+    if (
+      state.name !== "" &&
+      season !== "" &&
+      duration > 0 &&
+      countries.length > 0
+    ) {
+      setErrors({ ...errors, act_enviar: false });
+    }
   }
   //____________________________________________________________________________submit
   function handleSubmit(e) {
@@ -86,9 +85,14 @@ function AddActivity(props) {
       season: "",
       countries: [],
     });
+
+    setErrors({ input: "", act_enviar: true });
     alert("Actividad Creada.");
-    (() => history.push("/home"))();
+    (() => {
+      history.push("/home/createActivity");
+    })();
   }
+
   //__________________________________________________________________________________
   function valida(e) {
     if (e.value === "") {
@@ -99,6 +103,10 @@ function AddActivity(props) {
   if (countries) {
     return (
       <div className="div-addAct">
+        <button
+          className="button-home "
+          onClick={() => history.push("/home")}
+        ></button>
         <div className="div-set-data">
           <div className="data-enter-left">
             <h3>Nombre:</h3>
@@ -109,12 +117,13 @@ function AddActivity(props) {
 
           <div className="div-out-right">
             <input
-              autocomplete="none"
+              autoComplete="none"
               className="input"
               value={state.name}
               name="input"
               onBlur={(e) => valida(e.target)}
               placeholder={errors.input}
+              required
               onChange={(e) => validate(e.target)}
             ></input>
 
@@ -123,26 +132,25 @@ function AddActivity(props) {
                 className="button-mas-mas"
                 name="mas"
                 onClick={(e) => validate(e.target)}
-                >
+              >
                 +
               </button>
               <button
                 className="button-mas-menos"
                 name="menos"
                 onClick={(e) => validate(e.target)}
-                >
-                
-              </button>
-                  <h3 className="h3-horas">{state.duration} horas</h3>
+              ></button>
+              <h3 className="h3-horas">{state.duration} horas</h3>
             </div>
 
             <select
+              defaultValue="DEFAULT"
               className="selectt"
               onChange={(e) => {
                 setState({ ...state, season: e.target.value });
               }}
             >
-              <option disabled selected>
+              <option value="DEFAULT" disabled>
                 seleccionar temporada
               </option>
               <option className="optionss" value="verano">
@@ -160,13 +168,14 @@ function AddActivity(props) {
             </select>
 
             <select
+              defaultValue="DEFAULT"
               className="selectt"
               name="select"
               onChange={(e) => {
                 validate(e.target);
               }}
             >
-              <option disabled selected>
+              <option value="DEFAULT" disabled>
                 seleccionar pais
               </option>
               {countries.map((coun) => (
@@ -189,6 +198,30 @@ function AddActivity(props) {
               ></button>
             </form>
           </div>
+
+          <fieldset className="details-inputs">
+            <legend>
+              <h3>Datos</h3>
+            </legend>
+            <h3 className="h3">nombre:</h3>
+            <h3 className="h3">
+              {state.name.length < 15
+                ? state.name
+                : state.name.substring(0, 24)}
+            </h3>
+            <h3 className="h3">duracion:</h3>
+            <h3 className="h3">{state.duration > 0 ? state.duration : ""}</h3>
+            <h3 className="h3">temporada:</h3>
+            <h3 className="h3">{state.season}</h3>
+            <h3 className="h3">ciudad/s:</h3>
+            <ul className="uli">
+              {state.countries.map((e) => (
+                <li key={e}>
+                  <h3 className="h3">{e}</h3>
+                </li>
+              ))}
+            </ul>
+          </fieldset>
         </div>
       </div>
     );

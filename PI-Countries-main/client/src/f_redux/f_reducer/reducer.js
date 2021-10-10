@@ -50,8 +50,29 @@ function reducerRoot(state = initialState, action) {
               array[i] = aux;
             }
           }
+          if (action.payload === "cont") {
+            if (array[i].continent > array[j].continent) {
+              aux = array[j];
+              array[j] = array[i];
+              array[i] = aux;
+            }
+          }
+          if (action.payload === "area") {
+            if (array[i].area > array[j].area) {
+              aux = array[j];
+              array[j] = array[i];
+              array[i] = aux;
+            }
+          }
+          if (action.payload === "act") {
+            if (array[i].ActTurs.length < array[j].ActTurs.length) {
+              aux = array[j];
+              array[j] = array[i];
+              array[i] = aux;
+            }
+          }
         }
-      }
+      } //case
       return { ...state, countries: array };
 
     //_____________________________________________________________________

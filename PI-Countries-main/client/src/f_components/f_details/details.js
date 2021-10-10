@@ -47,7 +47,7 @@ function Details(props) {
                     <ul>
                       <h3>Actividad turistica</h3>
                       {ActTurs.map((e) => (
-                        <div className="div-activity">
+                        <div key={e.id} className="div-activity">
                           <li>{e.difficulty}</li>
                           <li>{e.season}</li>
                           <li>{e.duration}</li>

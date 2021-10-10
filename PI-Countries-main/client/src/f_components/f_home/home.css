@@ -15,28 +15,35 @@
   width: 400px;
   height: 400px;
   display: grid;
-  background: url("../../f_img/fondoDiv.png");
-  grid-template-rows: 70% 15% 15%;
-  border: 2px solid rgb(7, 6, 19);
-  box-shadow: 10px 15px 1.6em rgb(17, 15, 44);
+  background: rgba(1, 1, 99, 0.466);
+  grid-template-rows: 75% 5% 10% 10%;
+  border: 2px solid rgb(10, 1, 112);
+  box-shadow: 10px 15px 0.4em rgb(6, 24, 122);
   border-radius: 0.4em;
   transition-duration: 0.3s;
 }
-.div-comp-country:hover{
-     box-shadow: 10px 15px 1.6em rgb(202, 7, 7);
-
+.div-comp-country:hover {
+  box-shadow: 10px 15px 0.3em rgba(5, 5, 207, 0.466);
+  width: 420px;
+  height: 420px;
 }
 .imgFlat {
-  height: 270px;
+  height: 300px;
   width: 350px;
   border-radius: 0.5em;
   margin: auto;
   margin-top: 1em;
 
 }
+
+
+.country-mas-act{
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
 .divRowColCountries {
   display: grid;
-  overflow: hidden;
   width: 1500px;
   height: auto;
   grid-template-columns: 33% 33% 33%;
@@ -53,47 +60,46 @@
   height: 40px;
 }
 .opciones-Select {
-  color: rgb(218, 214, 230);
+  color: rgb(255, 255, 255);
   font-size: 1.1em;
-  border-radius: 1.2em;
+  background: rgba(3, 11, 121, 0.801);
 }
 .select {
-  background: rgb(20, 18, 18);
-  color: rgb(220, 220, 235);
-  border-radius: 0.2em;
+  background: rgba(12, 2, 148, 0.575);
+  color: rgb(225, 223, 247);
+  border-radius: 0.3em;
   text-align: center;
   font-size: 1.2em;
-  font-family: "comic sans ms";
-  border: 2px solid rgb(211, 211, 226);
-  box-shadow: 10px 12px 0.7em rgb(184, 181, 214);
-    transition-duration: 0.3s;
+  font-family: "verdana";
+  border: 2px solid rgb(163, 163, 202);
+  box-shadow: 0px 8px 0.4em rgb(184, 181, 214);
+  transition-duration: 0.3s;
 }
-.select:hover{
-    box-shadow: 10px 12px 0.7em rgb(230, 32, 32);
+.select:hover {
+  box-shadow: 0px 8px 0.4em rgb(17, 14, 219);
 }
 
 .button-sig-ant {
-  background: rgb(20, 18, 18);
+  background: rgba(23, 15, 131, 0.404);
   color: rgb(220, 220, 235);
   border-radius: 0.2em;
   font-size: 2em;
   border: 2px solid rgb(218, 217, 240);
-  box-shadow: 10px 12px 0.7em rgb(184, 181, 214);
+  box-shadow: 0px 8px 0.4em rgb(184, 181, 214);
   transition-duration: 0.3s;
 }
-.button-sig-ant:hover{
-   box-shadow: 10px 12px 0.7em rgb(230, 32, 32);
+.button-sig-ant:hover {
+  box-shadow: 0px 8px 0.4em rgb(17, 14, 219);
 }
 
-h4{
-    text-decoration: none;
-    color: rgb(236, 229, 218);
-     font-size: 1.2em;
-     font-family: "comic sans ms";
-     transition-duration: 0.3s;
+h4 {
+  text-decoration: none;
+  color: rgb(233, 230, 243);
+  font-size: 0.9em;
+  font-family: "verdana";
+  transition-duration: 0.3s;
 }
 
-
-.link-home{
-    text-decoration: none;
+.link-home {
+  text-decoration: none;
 }

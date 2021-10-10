@@ -1,8 +1,29 @@
 .divPrincipal {
-  width:content;
+  display: grid;
+  grid-template-rows: 70% 30%;
+  width: content;
   height: 937px;
   background: url("../../f_img/fondo2kPaises3.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
+.button-ingresar {
+  margin: auto;
+  background: url("../../f_img/Mundo_hecho_de_Banderas-gif.gif");
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  padding-left: 454px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.h4 {
+  width: 300px;
+  height: 120px;
+  margin: auto;
+  padding-bottom: 100px;
+  float: inline-start;
+}
