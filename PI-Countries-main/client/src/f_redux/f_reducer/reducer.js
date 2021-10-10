@@ -16,6 +16,12 @@ function reducerRoot(state = initialState, action) {
         ...state,
         countries: action.payload,
       };
+    //__________________________________________________________CLEAR
+    case _enum.CLEAR:
+        return {
+            ...state,
+            countriesNAME_ID:null
+        }
     //______________________________________________GET ID
     case _enum.GET_COUNTRY_ID:
       return {

@@ -16,7 +16,7 @@
   height: 400px;
   display: grid;
   background: rgba(1, 1, 99, 0.466);
-  grid-template-rows: 75% 5% 10% 10%;
+  grid-template-rows: 75% 10% 10% 5%;
   border: 2px solid rgb(10, 1, 112);
   box-shadow: 10px 15px 0.4em rgb(6, 24, 122);
   border-radius: 0.4em;
@@ -94,8 +94,8 @@
 
 h4 {
   text-decoration: none;
-  color: rgb(233, 230, 243);
-  font-size: 0.9em;
+  color: rgb(255, 255, 255);
+  font-size: 0.8em;
   font-family: "verdana";
   transition-duration: 0.3s;
 }

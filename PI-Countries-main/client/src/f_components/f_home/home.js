@@ -112,9 +112,9 @@ function Home({ state }) {
                 <img className="imgFlat" src={ct.imgflat} alt=""></img>
               </Link>
               <Link className="link-home" to={`/home/details/${ct.id}`}>
-                <h4>{`Name:${ct.name.toUpperCase()}`}</h4>
+                <h4>{`Name: ${ct.name.toUpperCase()}`}</h4>
               </Link>
-              <h4>{`Continente:${ct.continent.toUpperCase()}`}</h4>
+              <h4>{`Continente: ${ct.continent.toUpperCase()}`}</h4>
               {ct.ActTurs.length > 0 ? (
                 <img className="country-mas-act" src={img} />
               ) : (

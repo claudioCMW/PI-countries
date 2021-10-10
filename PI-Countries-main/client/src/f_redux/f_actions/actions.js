@@ -62,6 +62,12 @@ export function getCountryName(name) {
     }
   };
 }
+//________________________________________________________________________________________clear
+export function clear(){
+    return {
+        type:_enum.CLEAR
+    }
+}
 //_______________________________________________________________________________________all Countries
 export function allCountries() {
   return async function () {

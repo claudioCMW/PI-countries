@@ -11,9 +11,9 @@
   grid-template-rows: 50% 50%;
   align-content: center;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 30px;
   width: 800px;
-  height: 650px;
+  height: 750px;
   background: rgba(0, 0, 0, 0.726);
   border: 1px solid rgb(22, 20, 20);
   border-radius: 1.2em;
@@ -27,13 +27,13 @@
   display: grid;
   grid-template-rows: 20% 20% 20% 20%;
   padding-right: 40px;
-  margin-top: 70px;
+  margin-top: 50px;
   align-items: center;
   justify-items: right;
 }
 
 .div-out-right {
-  margin-top: 70px;
+  margin-top: 50px;
   display: grid;
   grid-template-rows: 20% 20% 20% 20%;
   margin-right: 125px;
@@ -89,10 +89,14 @@
   cursor: pointer;
   float: center;
   margin-right: -590px;
-  margin-top: 40px;
+  margin-top: 10px;
   transition: 0.3ms;
 
 }
+
+
+
+
 .button-home:hover{
     background: url("../../f_img/home2.png");
     background-repeat: no-repeat;
@@ -158,27 +162,33 @@
 .h3 {
   font-size: 12px;
   max-width: 127px;
-  max-height: 35px;
-  text-align: left;
+  height: 1px;
+  text-align: justify;
+
 }
 
 .uli {
   overflow-y: auto;
-  height: 90px;
+  height: 60px;
   margin-left: -40px;
   padding-right: 90px;
+  text-decoration: none;
 }
 
 .details-inputs {
   display: grid;
-  grid-template-columns: 50% 50%;
-
+  grid-template-columns: 30% 70%;
   background: rgba(19, 21, 26, 0.425);
   margin-bottom: 10px;
   justify-items: left;
-  max-width: 370px;
-  max-height: 450px;
+  max-width: 320px;
+  max-height: 550px;
   border-radius: 0.7em;
   margin-right: 5px;
   text-align: justify;
+}
+
+.rango-dificultad{
+    width: 220px;
+    
 }

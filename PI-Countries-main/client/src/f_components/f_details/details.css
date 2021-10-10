@@ -1,8 +1,84 @@
-ul{
-   list-style: none; 
+.fondo-details {
+  display: grid;
+  grid-template-rows: 5% 90%;
+  background: url("../../f_img/fondo2kPaises9.jpg");
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 1920px;
+  height: 935px;
 }
+
+.button-home-details {
+  background: url("../../f_img/home.png");
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 65px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  margin: auto;
+  margin-right: 720px;
+  margin-top: 30px;
+  transition: 0.3ms;
+}
+
+.button-home-details:hover {
+  background: url("../../f_img/home2.png");
+  background-repeat: no-repeat;
+}
+
+.div-details-country {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: rgba(7, 14, 75, 0.685);
+  margin: auto;
+  width: 900px;
+  height: 700px;
+  border-radius: 0.7em;
+  box-shadow: 12px 12px 0.4em black;
+}
+.div-left-details {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.div-right-details {
+  display: grid;
+}
+
+h2 {
+ 
+  color: rgb(233, 230, 243);
+  font-size: 0.9em;
+  font-family: "verdana";
+  margin: auto;
+  margin-top: 5px;
+  text-align: left;
+ 
+
+}
+
+.details-activity-tur {
+  overflow-y: auto;
+  grid-template-columns: 50% 50%;
+  background: rgba(19, 21, 26, 0.37);
+  margin-bottom: 10px;
+  justify-items: left;
+  border-radius: 0.3em;
+  align-items: center;
+
+
+
+}
+
 .div-activity{
-    background-color: brown;
-    display: grid;
-    grid-template-rows: 10% 10% 10% 10% 10%;
+    background: rgba(15, 112, 168, 0.411);
+     border-radius: 0.7em;
+     border: 1px solid blue;
+}
+
+.img-details{
+    margin: auto;
+    width: 440px;
+    height: 400px;
+    border-radius: 0.7em;
+    grid-column: 1/3;
 }

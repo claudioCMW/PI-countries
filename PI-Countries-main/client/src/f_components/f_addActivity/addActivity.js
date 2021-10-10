@@ -17,15 +17,23 @@ function AddActivity(props) {
     duration: 0,
     season: "",
     countries: [],
+    difficulty: 0,
   });
   useEffect(() => {
+    //cuando se crea
     if (countries) {
       dispath(_order("asc"));
     }
   }, []);
 
+  useEffect(() => {
+    //cuando se desmonta
+    return () => dispath(getCountries());
+  }, []);
+
   //______________________________________cambios en los campos
   useEffect(() => {
+    //update de estado
     validate({ value: "", name: "" });
   }, [state]);
 
@@ -37,8 +45,8 @@ function AddActivity(props) {
       if (state.name === "") {
         setErrors({ ...errors, act_enviar: true });
       } else {
-        if (value.length > 50) {
-          setState({ ...state, name: value.slice(0, 50) });
+        if (value.length > 20) {
+          setState({ ...state, name: value.slice(0, 20) });
         }
       }
     }
@@ -63,16 +71,23 @@ function AddActivity(props) {
         setState({ ...state, duration: state.duration - 1 });
       }
     }
+
+    if (name === "rango") {
+      setState({ ...state, difficulty: value });
+    }
     //_______________________________________________________aciva el button enviar
 
-    const { season, duration, countries } = state;
+    const { season, duration, difficulty, countries } = state;
     if (
       state.name !== "" &&
       season !== "" &&
       duration > 0 &&
+      difficulty > 0 &&
       countries.length > 0
     ) {
       setErrors({ ...errors, act_enviar: false });
+    } else {
+      setErrors({ ...errors, act_enviar: true });
     }
   }
   //____________________________________________________________________________submit
@@ -84,6 +99,7 @@ function AddActivity(props) {
       duration: 0,
       season: "",
       countries: [],
+      difficulty:0
     });
 
     setErrors({ input: "", act_enviar: true });
@@ -113,6 +129,7 @@ function AddActivity(props) {
             <h3>Duraciòn:</h3>
             <h3>Temporada:</h3>
             <h3>Ciudad:</h3>
+            <h3>Dificultad</h3>
           </div>
 
           <div className="div-out-right">
@@ -123,10 +140,11 @@ function AddActivity(props) {
               name="input"
               onBlur={(e) => valida(e.target)}
               placeholder={errors.input}
-              required
               onChange={(e) => validate(e.target)}
+             
             ></input>
 
+            <></>
             <div className="div-mas-menos">
               <button
                 className="button-mas-mas"
@@ -184,6 +202,18 @@ function AddActivity(props) {
                 </option>
               ))}
             </select>
+            <input
+              className="rango-dificultad"
+              type="range"
+              name="rango"
+              value={state.difficulty}
+              min="0"
+              max="5"
+              step="1"
+              onChange={(e) => {
+                validate(e.target);
+              }}
+            ></input>
           </div>
           <div className="send-data">
             <form
@@ -207,17 +237,21 @@ function AddActivity(props) {
             <h3 className="h3">
               {state.name.length < 15
                 ? state.name
-                : state.name.substring(0, 24)}
+                : state.name.substring(0, 20)}
             </h3>
             <h3 className="h3">duracion:</h3>
             <h3 className="h3">{state.duration > 0 ? state.duration : ""}</h3>
             <h3 className="h3">temporada:</h3>
             <h3 className="h3">{state.season}</h3>
+            <h3 className="h3">dificultad</h3>
+            <h3 className="h3">
+              {state.difficulty > 0 ? state.difficulty : ""}
+            </h3>
             <h3 className="h3">ciudad/s:</h3>
             <ul className="uli">
               {state.countries.map((e) => (
                 <li key={e}>
-                  <h3 className="h3">{e}</h3>
+                  <h2 className="h3">{e}</h2>
                 </li>
               ))}
             </ul>
