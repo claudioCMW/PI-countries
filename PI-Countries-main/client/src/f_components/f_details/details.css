@@ -3,7 +3,8 @@
   grid-template-rows: 5% 90%;
   background: url("../../f_img/fondo2kPaises9.jpg");
   background-repeat: no-repeat;
-  overflow: hidden;
+  background-attachment: fixed;
+
   width: 1920px;
   height: 935px;
 }
@@ -16,7 +17,7 @@
   border: 1px solid transparent;
   cursor: pointer;
   margin: auto;
-  margin-right: 720px;
+  margin-right: 620px;
   margin-top: 30px;
   transition: 0.3ms;
 }
@@ -31,7 +32,7 @@
   grid-template-columns: 50% 50%;
   background: rgba(7, 14, 75, 0.685);
   margin: auto;
-  width: 700px;
+  width: 750px;
   height: 700px;
   border-radius: 0.7em;
   box-shadow: 12px 12px 0.4em black;
@@ -80,7 +81,7 @@ h2 {
 .img-details{
     margin: auto;
     width: 330px;
-    height: 300px;
+    height: 330px;
     border-radius: 0.7em;
     grid-column: 1/3;
 }

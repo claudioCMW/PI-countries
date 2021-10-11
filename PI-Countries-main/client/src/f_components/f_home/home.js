@@ -98,17 +98,17 @@ function Home({ state }) {
             <option className="opciones-Select" value="des">
               z-a
             </option>
-            <option className="opciones-Select" value="cont">
-              continente
+            <option className="opciones-Select" value="area">
+              area
             </option>
             <option className="opciones-Select" value="act">
               actividad
             </option>
-            <option className="opciones-Select" value="area">
-              area
-            </option>
             <option className="opciones-Select" value="pob">
               población
+            </option>
+            <option className="opciones-Select" value="cont">
+              continente
             </option>
           </select>
         </div>

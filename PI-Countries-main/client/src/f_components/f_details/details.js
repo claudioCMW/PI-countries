@@ -13,13 +13,14 @@ require("./details.css");
 function Details(props) {
   const history = useHistory();
   const dispath = useDispatch();
-  const { id, countriesNAME_ID } = props;
+  var { id, countriesNAME_ID } = props;
 
   useEffect(() => {
     return () => dispath(clear());
   }, [dispath]);
 
   if (countriesNAME_ID) {
+    countriesNAME_ID = countriesNAME_ID.slice(0,1);
     return (
       <div className="fondo-details">
         <button
@@ -53,7 +54,7 @@ function Details(props) {
                     <h2>CAPITAL:</h2>
                     <h2>{cap.toUpperCase()}</h2>
                     <h2>AREA:</h2>
-                    <h2>{area+"Km2"}</h2>
+                    <h2>{area + "Km2"}</h2>
                     <h2>POBLACIÓN:</h2>
                     <h2>{poblation}</h2>
                   </div>
