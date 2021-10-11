@@ -65,7 +65,7 @@ export function getCountryName(name) {
 //________________________________________________________________________________________clear
 export function clear(){
     return {
-        type:_enum.CLEAR
+        type:_enum.CLEAR,payload:null
     }
 }
 //_______________________________________________________________________________________all Countries

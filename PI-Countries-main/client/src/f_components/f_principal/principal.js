@@ -1,12 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import {
-  allCountries,
-  getCountries,
-  _order,
-} from "../../f_redux/f_actions/actions";
-
+import { allCountries } from "../../f_redux/f_actions/actions";
 require("../f_principal/principal.css");
 
 export default function Principal() {
@@ -14,7 +9,8 @@ export default function Principal() {
   const history = useHistory();
   useEffect(() => {
     dispatch(allCountries());
-  }, []);
+  }, [dispatch]);
+
   return (
     <div className="divPrincipal">
       <button

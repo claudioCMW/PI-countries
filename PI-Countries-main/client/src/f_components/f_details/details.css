@@ -77,8 +77,8 @@ h2 {
 
 .img-details{
     margin: auto;
-    width: 440px;
-    height: 400px;
+    width: 400px;
+    height: 380px;
     border-radius: 0.7em;
     grid-column: 1/3;
 }

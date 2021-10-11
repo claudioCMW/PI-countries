@@ -3,11 +3,10 @@ import React, { useEffect } from "react";
 
 import {
   clear,
-  getCountries,
   getCountryId,
   getCountryName,
 } from "../../f_redux/f_actions/actions";
-import search from "../../f_img/search7.gif"
+import search from "../../f_img/search7.gif";
 import { useHistory } from "react-router";
 require("./details.css");
 
@@ -16,14 +15,17 @@ function Details(props) {
   const dispath = useDispatch();
   const { id, countriesNAME_ID } = props;
 
-  useEffect(() => {
+  (() => {
     if (id.length > 3) {
       dispath(getCountryName(id));
     } else {
       dispath(getCountryId(id));
     }
-  }, []);
+  })();
 
+  useEffect(() => {
+    return () => dispath(clear());
+  }, [dispath]);
 
   if (countriesNAME_ID) {
     return (
@@ -51,16 +53,16 @@ function Details(props) {
                   <div className="div-left-details">
                     <img className="img-details" src={imgflat} alt="" />
                     <h2>ID:</h2>
-                    <h2>{id}</h2>
+                    <h2>{id.toUpperCase()}</h2>
                     <h2>NOMBRE:</h2>
-                    <h2>{name}</h2>
+                    <h2>{name.toUpperCase()}</h2>
                     <h2>CONTINENTE:</h2>
-                    <h2>{continent}</h2>
+                    <h2>{continent.toUpperCase()}</h2>
                     <h2>CAPITAL:</h2>
-                    <h2>{cap}</h2>
+                    <h2>{cap.toUpperCase()}</h2>
                     <h2>AREA:</h2>
                     <h2>{area}</h2>
-                    <h2>POBLACION:</h2>
+                    <h2>POBLACIÓN:</h2>
                     <h2>{poblation}</h2>
                   </div>
                   <fieldset className="details-activity-tur">
@@ -74,7 +76,7 @@ function Details(props) {
                             <h2>Nombre: {e.name}</h2>
                             <h2>Dificultad: {e.difficulty}</h2>
                             <h2>Temporada: {e.season}</h2>
-                            <h2>Duración: {e.duration}</h2>
+                            <h2>Duración: {e.duration} horas</h2>
                           </div>
                         ))}
                       </div>
@@ -90,11 +92,16 @@ function Details(props) {
       </div>
     );
   } else {
-     return ( <div className="fondo-details">
-         <button className="button-home-details" onClick={()=>history.push("/home")}></button>
-         <img className="img-search-no-found" src={search} alt=""/>
-          <h1>NOT FOUND</h1>
-     </div>)
+    return (
+      <div className="fondo-details">
+        <button
+          className="button-home-details"
+          onClick={() => history.push("/home")}
+        ></button>
+        <img className="img-search-no-found" src={search} alt="" />
+        <h1>NOT FOUND</h1>
+      </div>
+    );
   }
 }
 

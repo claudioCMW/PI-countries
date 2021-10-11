@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { addActi, getCountries, _order } from "../../f_redux/f_actions/actions";
+import { addActi, _order } from "../../f_redux/f_actions/actions";
 require("./addActivity.css");
 
 function AddActivity(props) {
@@ -22,15 +22,9 @@ function AddActivity(props) {
   useEffect(() => {
     //cuando se crea
     if (countries) {
-      dispath(_order("asc"));
+     return  dispath(_order("asc"));
     }
-  }, []);
-
-  useEffect(() => {
-    //cuando se desmonta
-    return () => dispath(getCountries());
-  }, []);
-
+  }, [dispath]);
   //______________________________________cambios en los campos
   useEffect(() => {
     //update de estado
@@ -99,7 +93,7 @@ function AddActivity(props) {
       duration: 0,
       season: "",
       countries: [],
-      difficulty:0
+      difficulty: 0,
     });
 
     setErrors({ input: "", act_enviar: true });
@@ -141,7 +135,6 @@ function AddActivity(props) {
               onBlur={(e) => valida(e.target)}
               placeholder={errors.input}
               onChange={(e) => validate(e.target)}
-             
             ></input>
 
             <></>
@@ -240,7 +233,9 @@ function AddActivity(props) {
                 : state.name.substring(0, 20)}
             </h3>
             <h3 className="h3">duración:</h3>
-            <h3 className="h3">{state.duration > 0 ? state.duration : ""}</h3>
+            <h3 className="h3">
+              {state.duration > 0 ? state.duration + " horas" : ""}
+            </h3>
             <h3 className="h3">temporada:</h3>
             <h3 className="h3">{state.season}</h3>
             <h3 className="h3">dificultad</h3>
@@ -251,7 +246,9 @@ function AddActivity(props) {
             <ul className="uli">
               {state.countries.map((e) => (
                 <li key={e}>
-                  <h3 className="h3">{e}</h3>
+                  <h3 className="h3">
+                    {e.length > 15 ? e.substring(0, 15) : e}
+                  </h3>
                 </li>
               ))}
             </ul>

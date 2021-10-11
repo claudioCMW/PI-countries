@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { getCountries, _order } from "../../f_redux/f_actions/actions";
 
 require("./nav.css");
 
 export default function Nav() {
   var [input, setInput] = useState("");
   var history = useHistory();
-  const dispatch=useDispatch()
+  
   //______________________________________________________
   function validate(value) {
     if (value.length < 20) {

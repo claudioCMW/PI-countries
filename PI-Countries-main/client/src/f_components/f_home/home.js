@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import React, { useEffect } from "react";
+import React from "react";
 import Nav from "../f_nav/nav";
 import { getCountries, _order } from "../../f_redux/f_actions/actions";
 import { useState } from "react";
-import { useHistory } from "react-router";
 import img from "../../f_img/create2.png";
 import search from "../../f_img/search7.gif";
 require("./home.css");
@@ -13,7 +12,6 @@ require("./home.css");
 function Home({ state }) {
   var { countries } = state;
   const dispatch = useDispatch();
-  const history = useHistory();
   var [pag, setPag] = useState(0);
   var country;
   //______________________________________________________
@@ -26,11 +24,6 @@ function Home({ state }) {
       setPag(pag - 9);
     }
   }
-  useEffect(() => {
-    if (!countries) {
-      return dispatch(getCountries());
-    }
-  }, []);
 
   //_________________________________________________________
   function orderCountries(e) {
@@ -51,6 +44,8 @@ function Home({ state }) {
         break;
       case "act":
         dispatch(_order("act"));
+        break;
+      default:
         break;
     }
   }
@@ -122,7 +117,7 @@ function Home({ state }) {
               </Link>
               <h4>{`Continente: ${ct.continent.toUpperCase()}`}</h4>
               {ct.ActTurs.length > 0 ? (
-                <img className="country-mas-act" src={img} />
+                <img className="country-mas-act" src={img} alt="" />
               ) : (
                 <></>
               )}
@@ -132,9 +127,9 @@ function Home({ state }) {
       </div>
     );
   } else {
+    dispatch(getCountries());
     return (
       <div className="fondo-details">
-       
         <img className="img-search-no-found" src={search} alt="" />
       </div>
     );
