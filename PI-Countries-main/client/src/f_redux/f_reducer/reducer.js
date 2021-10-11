@@ -77,6 +77,13 @@ function reducerRoot(state = initialState, action) {
               array[i] = aux;
             }
           }
+          if (action.payload === "pob") {
+            if (array[i].poblation < array[j].poblation) {
+              aux = array[j];
+              array[j] = array[i];
+              array[i] = aux;
+            }
+          }
         }
       } //case
       return { ...state, countries: array };

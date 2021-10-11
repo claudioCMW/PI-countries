@@ -47,6 +47,7 @@ export default function Nav() {
             <input
               className="input-nav"
               value={input}
+            
               onInput={(e) => validate(e.target.value)}
             ></input>
             <button className="button-input-nav" type="submit"></button>

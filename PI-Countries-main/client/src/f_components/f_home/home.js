@@ -45,6 +45,9 @@ function Home({ state }) {
       case "act":
         dispatch(_order("act"));
         break;
+      case "pob":
+        dispatch(_order("pob"));
+        break;
       default:
         break;
     }
@@ -103,6 +106,9 @@ function Home({ state }) {
             </option>
             <option className="opciones-Select" value="area">
               area
+            </option>
+            <option className="opciones-Select" value="pob">
+              población
             </option>
           </select>
         </div>

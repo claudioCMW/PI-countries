@@ -31,7 +31,7 @@
   grid-template-columns: 50% 50%;
   background: rgba(7, 14, 75, 0.685);
   margin: auto;
-  width: 900px;
+  width: 700px;
   height: 700px;
   border-radius: 0.7em;
   box-shadow: 12px 12px 0.4em black;
@@ -39,9 +39,11 @@
 .div-left-details {
   display: grid;
   grid-template-columns: 50% 50%;
+
 }
 .div-right-details {
   display: grid;
+
 }
 
 h2 {
@@ -51,7 +53,7 @@ h2 {
   font-family: "verdana";
   margin: auto;
   margin-top: 5px;
-  text-align: left;
+ text-align: center;
  
 
 }
@@ -77,8 +79,8 @@ h2 {
 
 .img-details{
     margin: auto;
-    width: 400px;
-    height: 340px;
+    width: 330px;
+    height: 300px;
     border-radius: 0.7em;
     grid-column: 1/3;
 }

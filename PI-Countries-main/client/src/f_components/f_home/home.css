@@ -2,7 +2,7 @@
   width: 1920px;
   height: 1600px;
   display: grid;
-  grid-template-rows: 5% 5% auto;
+  grid-template-rows: 5% 6% auto;
   background: url("../../f_img/fondo2kPaises5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -17,13 +17,13 @@
   display: grid;
   background: rgba(1, 1, 99, 0.466);
   grid-template-rows: 75% 10% 10% 5%;
-  border: 2px solid rgb(10, 1, 112);
-  box-shadow: 10px 15px 0.4em rgb(6, 24, 122);
+  border: 2px solid rgb(56, 133, 221);
+  box-shadow: 7px 7px 0.3em rgb(57, 156, 223);
   border-radius: 0.4em;
   transition-duration: 0.3s;
 }
 .div-comp-country:hover {
-  box-shadow: 10px 15px 0.3em rgba(5, 5, 207, 0.466);
+  box-shadow: 10px 15px 0.3em rgba(70, 171, 238, 0.466);
   width: 420px;
   height: 420px;
 }
@@ -33,14 +33,13 @@
   border-radius: 0.5em;
   margin: auto;
   margin-top: 1em;
-
+  border: 2px solid rgb(243, 243, 245);
 }
 
-
-.country-mas-act{
-    width: 40px;
-    height: 40px;
-    margin: auto;
+.country-mas-act {
+  width: 40px;
+  height: 40px;
+  margin: auto;
 }
 .divRowColCountries {
   display: grid;
@@ -53,7 +52,7 @@
 
 .divButtonsPage {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 30% 30% 30% ;
   margin: auto;
   margin-left: 850px;
   width: 450px;
@@ -68,15 +67,20 @@
   background: rgba(12, 2, 148, 0.575);
   color: rgb(225, 223, 247);
   border-radius: 0.3em;
+  width: 120px;
+  height: 45px;
   text-align: center;
   font-size: 1.2em;
   font-family: "verdana";
   border: 2px solid rgb(163, 163, 202);
-  box-shadow: 0px 8px 0.4em rgb(184, 181, 214);
+  box-shadow: 0px 8px 0.2em rgb(57, 156, 223);
+  width: 110px;
   transition-duration: 0.3s;
 }
 .select:hover {
-  box-shadow: 0px 8px 0.4em rgb(17, 14, 219);
+  width: 120px;
+  height: 50px;
+  box-shadow: 0px 8px 0.4em rgb(23, 127, 197);
 }
 
 .button-sig-ant {
@@ -84,12 +88,14 @@
   color: rgb(220, 220, 235);
   border-radius: 0.2em;
   font-size: 2em;
+  width: 120px;
+  height: 45px;
   border: 2px solid rgb(218, 217, 240);
-  box-shadow: 0px 8px 0.4em rgb(184, 181, 214);
+  box-shadow: 0px 8px 0.1em rgb(57, 156, 223);
   transition-duration: 0.3s;
 }
 .button-sig-ant:hover {
-  box-shadow: 0px 8px 0.4em rgb(17, 14, 219);
+  box-shadow: 0px 8px 0.2em rgb(17, 128, 202);
 }
 
 h4 {

@@ -12,7 +12,7 @@
   align-content: center;
   margin: auto;
   margin-top: 30px;
-  width: 800px;
+  width: 600px;
   height: 750px;
   background: rgba(0, 0, 0, 0.726);
   border: 1px solid rgb(22, 20, 20);
@@ -26,10 +26,11 @@
 .data-enter-left {
   display: grid;
   grid-template-rows: 20% 20% 20% 20%;
-  padding-right: 40px;
+  padding-right: 10px;
   margin-top: 50px;
-  align-items: center;
-  justify-items: right;
+  align-items:flex-end;
+  text-align: right;
+ 
 }
 
 .div-out-right {
@@ -163,7 +164,7 @@
   font-size: 12px;
   max-width: 127px;
   height: 1px;
-  text-align: justify;
+  float: right;
 
 }
 
