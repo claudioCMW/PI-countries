@@ -7,7 +7,7 @@ import {
   getCountryId,
   getCountryName,
 } from "../../f_redux/f_actions/actions";
-import search from "../../f_img/search gif.gif";
+import search from "../../f_img/search7.gif"
 import { useHistory } from "react-router";
 require("./details.css");
 
@@ -24,20 +24,13 @@ function Details(props) {
     }
   }, []);
 
-  useEffect(() => {
-    return () =>  history.push("/home");
-     
-   
-  }, []);
 
   if (countriesNAME_ID) {
     return (
       <div className="fondo-details">
         <button
           className="button-home-details"
-          onClick={() => {
-            history.push("/home");
-          }}
+          onClick={() => history.push("/home")}
         ></button>
         {
           countriesNAME_ID.map(
@@ -97,12 +90,11 @@ function Details(props) {
       </div>
     );
   } else {
-    return (
-      <div>
-        <img src={search} alt="" />
-        <button className="button-home"></button>
-      </div>
-    );
+     return ( <div className="fondo-details">
+         <button className="button-home-details" onClick={()=>history.push("/home")}></button>
+         <img className="img-search-no-found" src={search} alt=""/>
+          <h1>NOT FOUND</h1>
+     </div>)
   }
 }
 

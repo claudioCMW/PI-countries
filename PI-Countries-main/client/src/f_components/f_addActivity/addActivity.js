@@ -126,7 +126,7 @@ function AddActivity(props) {
         <div className="div-set-data">
           <div className="data-enter-left">
             <h3>Nombre:</h3>
-            <h3>Duraciòn:</h3>
+            <h3>Duración:</h3>
             <h3>Temporada:</h3>
             <h3>Ciudad:</h3>
             <h3>Dificultad</h3>
@@ -239,7 +239,7 @@ function AddActivity(props) {
                 ? state.name
                 : state.name.substring(0, 20)}
             </h3>
-            <h3 className="h3">duracion:</h3>
+            <h3 className="h3">duración:</h3>
             <h3 className="h3">{state.duration > 0 ? state.duration : ""}</h3>
             <h3 className="h3">temporada:</h3>
             <h3 className="h3">{state.season}</h3>
@@ -251,7 +251,7 @@ function AddActivity(props) {
             <ul className="uli">
               {state.countries.map((e) => (
                 <li key={e}>
-                  <h2 className="h3">{e}</h2>
+                  <h3 className="h3">{e}</h3>
                 </li>
               ))}
             </ul>

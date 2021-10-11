@@ -28,8 +28,7 @@ router.post("/activity", (req, res, next) => {
       return Promise.all(res);
     })
     .then((fin) => {
-
-      actCreated.addCountries(fin.filter(e=>e!==null));
+      actCreated.addCountries(fin.filter((e) => e !== null));
       res.json("create");
     })
     .catch((e) => {
@@ -92,7 +91,6 @@ router.get("/countries", async (req, res, next) => {
       });
     })
     .then((e) => {
-
       res.status(200).send(e);
     })
     .catch(() => {
@@ -103,7 +101,7 @@ router.get("/countries", async (req, res, next) => {
 //_____________________________________________________________________________________________get countries BD ID
 router.get("/countries/:id", (req, res, next) => {
   const { id } = req.params;
-  
+
   var countries = Countrie.findAll({
     where: { id: id.toUpperCase() },
     include: ActTur,
@@ -131,7 +129,7 @@ router.get("/countries/:id", (req, res, next) => {
 //_______________________________________________________________________________ get countries first instance
 router.get("/allCountries", async (req, res, next) => {
   await Countrie.destroy({
-    where: { imgflat: { [Op.like]: "%https://upload%" } },
+    where: { imgflat: { [Op.like]: "%https%" } },
   });
 
   axios

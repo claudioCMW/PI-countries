@@ -6,6 +6,7 @@ import { getCountries, _order } from "../../f_redux/f_actions/actions";
 import { useState } from "react";
 import { useHistory } from "react-router";
 import img from "../../f_img/create2.png";
+import search from "../../f_img/search7.gif";
 require("./home.css");
 
 //___________________________________________________________________
@@ -25,6 +26,11 @@ function Home({ state }) {
       setPag(pag - 9);
     }
   }
+  useEffect(() => {
+    if (!countries) {
+      return dispatch(getCountries());
+    }
+  }, []);
 
   //_________________________________________________________
   function orderCountries(e) {
@@ -126,8 +132,12 @@ function Home({ state }) {
       </div>
     );
   } else {
-    history.push("/");
-    return <></>;
+    return (
+      <div className="fondo-details">
+       
+        <img className="img-search-no-found" src={search} alt="" />
+      </div>
+    );
   }
 }
 function mapStateToProps(state) {

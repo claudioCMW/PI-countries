@@ -14,9 +14,7 @@ export default function Principal() {
   const history = useHistory();
   useEffect(() => {
     dispatch(allCountries());
-    dispatch(getCountries());
   }, []);
-
   return (
     <div className="divPrincipal">
       <button
