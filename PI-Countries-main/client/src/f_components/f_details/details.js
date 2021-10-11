@@ -15,14 +15,6 @@ function Details(props) {
   const dispath = useDispatch();
   const { id, countriesNAME_ID } = props;
 
-  (() => {
-    if (id.length > 3) {
-      dispath(getCountryName(id));
-    } else {
-      dispath(getCountryId(id));
-    }
-  })();
-
   useEffect(() => {
     return () => dispath(clear());
   }, [dispath]);
@@ -61,7 +53,7 @@ function Details(props) {
                     <h2>CAPITAL:</h2>
                     <h2>{cap.toUpperCase()}</h2>
                     <h2>AREA:</h2>
-                    <h2>{area}</h2>
+                    <h2>{area+"Km2"}</h2>
                     <h2>POBLACIÓN:</h2>
                     <h2>{poblation}</h2>
                   </div>
@@ -92,6 +84,11 @@ function Details(props) {
       </div>
     );
   } else {
+    if (id.length > 3) {
+      dispath(getCountryName(id));
+    } else {
+      dispath(getCountryId(id));
+    }
     return (
       <div className="fondo-details">
         <button

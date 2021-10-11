@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { addActi, _order } from "../../f_redux/f_actions/actions";
+import { addActi, getCountries, _order } from "../../f_redux/f_actions/actions";
 require("./addActivity.css");
 
 function AddActivity(props) {
@@ -20,9 +20,13 @@ function AddActivity(props) {
     difficulty: 0,
   });
   useEffect(() => {
+    return ()=>dispath(getCountries());
+  },[]);
+
+  useEffect(() => {
     //cuando se crea
     if (countries) {
-     return  dispath(_order("asc"));
+      return dispath(_order("asc"));
     }
   }, [dispath]);
   //______________________________________cambios en los campos
