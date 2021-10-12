@@ -45,6 +45,7 @@ export default function Nav() {
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="div-form-inp-but">
             <input
+              autoComplete="off"
               name="input"
               className="input-nav"
               value={input}

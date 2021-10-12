@@ -33,7 +33,7 @@ describe(" routes", () => {
         agent
           .post("/activity")
           .send({
-            name: "campar",
+            name: "a campar",
             duration: 3,
             season: "verano",
             countries: ["argentina"],

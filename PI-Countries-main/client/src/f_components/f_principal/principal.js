@@ -7,9 +7,9 @@ require("../f_principal/principal.css");
 export default function Principal() {
   const dispatch = useDispatch();
   const history = useHistory();
-  useEffect(() => {
-    dispatch(allCountries());
-  }, [dispatch]);
+  useEffect(() => {dispatch(allCountries());
+    
+  }, []);
 
   return (
     <div className="divPrincipal">

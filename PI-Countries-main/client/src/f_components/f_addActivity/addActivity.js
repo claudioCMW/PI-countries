@@ -132,7 +132,7 @@ require("./addActivity.css");
 
           <div className="div-out-right">
             <input
-              autoComplete="none"
+              autoComplete="off"
               className="input"
               value={state.name}
               name="input"

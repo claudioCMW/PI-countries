@@ -54,7 +54,7 @@ function Details(props) {
                     <h2>CAPITAL:</h2>
                     <h2>{cap.toUpperCase()}</h2>
                     <h2>AREA:</h2>
-                    <h2>{area + "Km2"}</h2>
+                    <h2>{(area*0.0010).toFixed(2) + "Km2"}</h2>
                     <h2>POBLACIÓN:</h2>
                     <h2>{poblation}</h2>
                   </div>

@@ -32,7 +32,6 @@ router.post("/activity", (req, res, next) => {
       res.json("create");
     })
     .catch((e) => {
-      // res.status(500).send([]);
       next(e);
     });
 });
@@ -67,7 +66,7 @@ router.get("/countries", (req, res, next) => {
         res.status(200).send(e);
       })
       .catch(() => {
-        // res.status(500).send([]);
+      
         next(e);
       });
   }
