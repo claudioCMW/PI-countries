@@ -60,28 +60,15 @@ function Home({ state }) {
       <div className="homeDiv">
         <Nav></Nav>
         <div className="divButtonsPage">
-          {pag === 0 ? (
-            <button hidden={true}></button>
-          ) : (
-            <button
-              className="button-sig-ant"
-              name="ant"
-              onClick={(e) => changePag(e)}
-            >
-              {"<<"}
-            </button>
-          )}
-          {pag + 9 > countries.length ? (
-            <button hidden={true}></button>
-          ) : (
-            <button
-              className="button-sig-ant"
-              name="sig"
-              onClick={(e) => changePag(e)}
-            >
-              {">>"}
-            </button>
-          )}
+          <button
+            className={pag === 0 ? "button-disabled" : "button-sig-ant"}
+            disabled={pag === 0 ? true : false}
+            name="ant"
+            onClick={(e) => changePag(e)}
+          >
+            {pag === 0 ? "" : "<<"}
+          </button>
+
 
           <select
             defaultValue={"DEFAULT"}
@@ -111,6 +98,16 @@ function Home({ state }) {
               continente
             </option>
           </select>
+          <button
+            className={
+              pag + 9 > countries.length ? "button-disabled" : "button-sig-ant"
+            }
+            name="sig"
+            onClick={(e) => changePag(e)}
+            disabled={pag + 9 > countries.length ? true : false}
+          >
+            {pag + 9 > countries.length ? "" : ">>"}
+          </button>
         </div>
         <div className="divRowColCountries">
           {country.map((ct) => (

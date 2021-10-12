@@ -9,7 +9,7 @@ export default function Principal() {
   const history = useHistory();
   useEffect(() => {dispatch(allCountries());
     
-  }, []);
+  });
 
   return (
     <div className="divPrincipal">
