@@ -94,7 +94,7 @@ router.get("/countries", async (req, res, next) => {
       res.status(200).send(e);
     })
     .catch(() => {
-      // res.status(500).send([]);
+     
       next(e);
     });
 });

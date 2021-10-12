@@ -7,7 +7,7 @@ require("./nav.css");
 export default function Nav() {
   var [input, setInput] = useState("");
   var history = useHistory();
-  
+
   //______________________________________________________
   function validate(value) {
     if (value.length < 20) {
@@ -45,9 +45,9 @@ export default function Nav() {
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="div-form-inp-but">
             <input
+              name="input"
               className="input-nav"
               value={input}
-            
               onInput={(e) => validate(e.target.value)}
             ></input>
             <button className="button-input-nav" type="submit"></button>
@@ -56,9 +56,10 @@ export default function Nav() {
         <div></div>
         <div className="div-createAct">
           <h3>Crear actividad</h3>
-          <button className="button-create-nav" onClick={() => createFactory()}>
-      
-          </button>
+          <button
+            className="button-create-nav"
+            onClick={() => createFactory()}
+          ></button>
         </div>
       </div>
     </header>

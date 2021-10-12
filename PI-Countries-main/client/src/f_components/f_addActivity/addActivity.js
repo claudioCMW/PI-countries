@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addActi, getCountries, _order } from "../../f_redux/f_actions/actions";
 require("./addActivity.css");
 
-function AddActivity(props) {
+ export  function AddActivity(props) {
   const history = useHistory();
   const { countries } = props;
   const dispath = useDispatch();
