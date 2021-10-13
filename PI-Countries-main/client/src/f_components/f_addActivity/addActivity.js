@@ -132,7 +132,7 @@ require("./addActivity.css");
 
           <div className="div-out-right">
             <input
-              autoComplete="off"
+              autoComplete="none"
               className="input"
               value={state.name}
               name="input"
@@ -193,9 +193,9 @@ require("./addActivity.css");
               <option value="DEFAULT" disabled>
                 seleccionar pais
               </option>
-              {countries.map((coun,index) => (
+              {countries.map((coun, index) => (
                 <option className="optionss" key={coun.id} value={coun.name}>
-                  {`${index+1}-${coun.name}`}
+                  {`${index + 1}-${coun.name}`}
                 </option>
               ))}
             </select>
@@ -251,9 +251,7 @@ require("./addActivity.css");
               {state.countries.map((e, index) => (
                 <li key={e}>
                   <h3 className="h3">
-                    {e.length > 15
-                      ?"*" + e.substring(0, 15)
-                      :"*" + e}
+                    {e.length > 15 ? "*" + e.substring(0, 15) : "*" + e}
                   </h3>
                 </li>
               ))}

@@ -25,7 +25,6 @@ function Home({ state }) {
     }
   }
 
-  useEffect(()=>{},[dispatch])
 
   //_________________________________________________________
   function orderCountries(e) {
@@ -56,7 +55,7 @@ function Home({ state }) {
   }
 
   //___________________________________________________________
-  if (countries!==null) {
+  if (countries) {
     country = countries.slice(pag, pag + 9);
     return (
       <div className="homeDiv">
