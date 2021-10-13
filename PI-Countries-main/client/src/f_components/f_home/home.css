@@ -12,7 +12,8 @@
 
 .div-comp-country {
   margin: auto;
-  margin-top: 4em;
+  margin-bottom: 10px;
+  margin-top: 10px;
   width: 400px;
   height: 400px;
   display: grid;
@@ -29,11 +30,14 @@
   height: 420px;
 }
 .imgFlat {
-  height: 280px;
-  width: 350px;
+  min-height: 290px;
+  width: 370px;
+    height: 290px;
+  max-width: 370px;
   border-radius: 0.5em;
-  margin: auto;
-  margin-top: 1em;
+margin: 10px;
+align-items: center;
+
   border: 2px solid rgb(32, 123, 175);
 }
 
@@ -48,8 +52,8 @@
   height: auto;
   grid-template-columns: 33% 33% 33%;
   margin: auto;
-  margin-top: 10px;
-   margin-bottom: 20px;
+  margin-top: 13px;
+  margin-bottom: 20px;
 }
 
 .divButtonsPage {
@@ -106,17 +110,18 @@
 
 h4 {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  margin:15px;
+  color: rgb(176, 214, 230);
   font-size: 0.8em;
   font-family: "verdana";
-  transition-duration: 0.3s;
+ 
 }
 
 .link-home {
   text-decoration: none;
 }
 
-.button-disabled{
-     border: 0px solid transparent;
-    background: transparent;
+.button-disabled {
+  border: 0px solid transparent;
+  background: transparent;
 }

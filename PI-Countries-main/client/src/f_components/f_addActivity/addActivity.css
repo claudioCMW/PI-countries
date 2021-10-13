@@ -82,11 +82,12 @@
 }
 
 .button-home {
-  background: url("../../f_img/home.png");
+  background: url("../../f_img/home.png"),rgba(5, 11, 88, 0.486);
   background-repeat: no-repeat;
   width: 70px;
   height: 65px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(6, 6, 7, 0.692) inset;
+  border-radius: 0.7em;
   cursor: pointer;
   float: center;
   margin-right: -590px;
@@ -99,9 +100,9 @@
 
 
 .button-home:hover{
-    background: url("../../f_img/home2.png");
+    background: url("../../f_img/home2.png"),rgba(6, 12, 95, 0.671) ;
     background-repeat: no-repeat;
-
+ border: 1px solid rgba(6, 6, 7, 0.692) inset;
 }
 
 

@@ -11,7 +11,7 @@ export function getCountries() {
   return async function (dispatch) {
     try {
       const result = await axios.get("http://localhost:3001/Countries");
-      const countries = result.data;
+      var countries = result.data;
       if (countries.length === 0) {
         countries = null;
       }

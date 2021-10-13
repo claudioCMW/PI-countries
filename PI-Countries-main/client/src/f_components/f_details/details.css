@@ -4,17 +4,18 @@
   background: url("../../f_img/fondo2kPaises9.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-
   width: 1920px;
   height: 935px;
 }
 
 .button-home-details {
-  background: url("../../f_img/home.png");
+  background: url("../../f_img/home.png"),rgba(5, 11, 88, 0.486);
   background-repeat: no-repeat;
+  border: 1px solid rgba(6, 6, 7, 0.692) inset;
   width: 70px;
   height: 65px;
-  border: 1px solid transparent;
+  border-radius: 0.6em;
+ 
   cursor: pointer;
   margin: auto;
   margin-right: 620px;
@@ -23,8 +24,9 @@
 }
 
 .button-home-details:hover {
-  background: url("../../f_img/home2.png");
+  background: url("../../f_img/home2.png"),rgba(5, 11, 88, 0.486);
   background-repeat: no-repeat;
+  border: 1px solid rgba(6, 6, 7, 0.692) inset;
 }
 
 .div-details-country {
