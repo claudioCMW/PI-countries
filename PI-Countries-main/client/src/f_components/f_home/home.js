@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import React from "react";
 import Nav from "../f_nav/nav";
-import { getCountries, _order } from "../../f_redux/f_actions/actions";
+import { allCountries, getCountries, _order } from "../../f_redux/f_actions/actions";
 import { useState } from "react";
 import img from "../../f_img/create2.png";
 import search from "../../f_img/cargando2.gif";
@@ -129,6 +129,7 @@ function Home({ state }) {
       </div>
     );
   } else {
+    
     dispatch(getCountries());
     return (
       <div className="fondo-details">
