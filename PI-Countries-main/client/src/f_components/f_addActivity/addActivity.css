@@ -164,22 +164,24 @@
 .h3 {
   font-size: 12px;
   max-width: 127px;
-  height: 1px;
-  float: right;
+  height: 12px;
+  text-align: center;
 
 }
 
 .uli {
   overflow-y: auto;
+  display: block;
   height: 100px;
   position: relative;
   max-width: 180px;
-  margin-left: -40px;
+  
   padding-right: 20px;
   text-decoration: none;
 }
 li{
   list-style: none;
+  display: block;
 
 }
 

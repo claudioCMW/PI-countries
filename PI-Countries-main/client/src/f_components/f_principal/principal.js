@@ -7,11 +7,10 @@ require("../f_principal/principal.css");
 export default function Principal() {
   const dispatch = useDispatch();
   const history = useHistory();
-  useEffect(() => {
-    dispatch(allCountries());
+  useEffect(() =>  dispatch(allCountries())
    
     
-  },[]);
+  ,[dispatch]);
   
   return (
     <div className="divPrincipal">

@@ -5,12 +5,15 @@ import { useDispatch } from "react-redux";
 import { addActi, getCountries, _order } from "../../f_redux/f_actions/actions";
 require("./addActivity.css");
 
- export  function AddActivity(props) {
+export function AddActivity(props) {
   const history = useHistory();
   const { countries } = props;
   const dispath = useDispatch();
 
-  var [errors, setErrors] = useState({ input: "", act_enviar: true }); //valida y activa input/enviar
+  var [errors, setErrors] = useState({
+    input: "",
+    act_enviar: true,
+  }); //valida y activa input/enviar
 
   var [state, setState] = useState({
     name: "",
@@ -20,19 +23,23 @@ require("./addActivity.css");
     difficulty: 0,
   });
   useEffect(() => {
-    return ()=>dispath(getCountries());
-  },[]);
-
-  useEffect(() => {
-    //cuando se crea
-    if (countries) {
-      return dispath(_order("asc"));
-    }
+    return () => dispath(getCountries());
   }, [dispath]);
+
+  useEffect(
+    () => {
+      if (countries) {
+        return dispath(_order("asc"));
+      }
+    },//cuando se crea;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []);
+
   //______________________________________cambios en los campos
   useEffect(() => {
     //update de estado
     validate({ value: "", name: "" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   //_______________________________________________________
@@ -100,11 +107,8 @@ require("./addActivity.css");
       difficulty: 0,
     });
 
-    setErrors({ input: "", act_enviar: true });
+    setErrors({ input: "", act_enviar: true, select: "DEFAULT" });
     alert("Actividad Creada.");
-    (() => {
-      history.push("/home/createActivity");
-    })();
   }
 
   //__________________________________________________________________________________
@@ -113,6 +117,7 @@ require("./addActivity.css");
       setErrors({ ...errors, input: "campo obligatorio", act_enviar: true });
     }
   }
+
   //_____________________________________________________________________
   if (countries) {
     return (
@@ -161,9 +166,7 @@ require("./addActivity.css");
             <select
               defaultValue="DEFAULT"
               className="selectt"
-              onChange={(e) => {
-                setState({ ...state, season: e.target.value });
-              }}
+              onChange={(e) => setState({ ...state, season: e.target.value })}
             >
               <option value="DEFAULT" disabled>
                 seleccionar temporada

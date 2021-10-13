@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import React, { useEffect } from "react";
+import React from "react";
 import Nav from "../f_nav/nav";
 import { getCountries, _order } from "../../f_redux/f_actions/actions";
 import { useState } from "react";

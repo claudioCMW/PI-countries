@@ -58,6 +58,8 @@ align-items: center;
 
 .divButtonsPage {
   display: grid;
+  position: relative;
+  left: 14px;
   grid-template-columns: 30% 30% 30%;
   margin: auto;
   width: 450px;
