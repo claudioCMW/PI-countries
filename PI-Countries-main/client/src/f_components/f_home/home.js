@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "../f_nav/nav";
 import { getCountries, _order } from "../../f_redux/f_actions/actions";
 import { useState } from "react";
 import img from "../../f_img/create2.png";
-import search from "../../f_img/search7.gif";
+import search from "../../f_img/cargando2.gif";
 require("./home.css");
 
 //___________________________________________________________________
@@ -24,6 +24,8 @@ function Home({ state }) {
       setPag(pag - 9);
     }
   }
+
+  useEffect(()=>{},[dispatch])
 
   //_________________________________________________________
   function orderCountries(e) {
@@ -54,7 +56,7 @@ function Home({ state }) {
   }
 
   //___________________________________________________________
-  if (countries) {
+  if (countries!==null) {
     country = countries.slice(pag, pag + 9);
     return (
       <div className="homeDiv">
@@ -68,8 +70,6 @@ function Home({ state }) {
           >
             {pag === 0 ? "" : "<<"}
           </button>
-
-
           <select
             defaultValue={"DEFAULT"}
             className="select"

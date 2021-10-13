@@ -29,7 +29,7 @@ export default function Nav() {
   function handleSubmit(e) {
     e.preventDefault();
     if (input === "") {
-      alert("Ingrese nuevamente");
+      alert("Ingrese nuevamente" );
     } else {
       history.push(`/home/details/${input}`);
     }

@@ -127,7 +127,7 @@ router.get("/countries/:id", (req, res, next) => {
 //_______________________________________________________________________________ get countries first instance
 router.get("/allCountries", async (req, res, next) => {
   await Countrie.destroy({
-    where: { imgflat: { [Op.like]: "%https%" } },
+    where: { imgflat: { [Op.like]: "%http%" } },
   });
 
   axios

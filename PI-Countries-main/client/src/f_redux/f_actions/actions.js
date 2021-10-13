@@ -12,6 +12,9 @@ export function getCountries() {
     try {
       const result = await axios.get("http://localhost:3001/Countries");
       const countries = result.data;
+      if (countries.length === 0) {
+        countries = null;
+      }
       return dispatch({ type: _enum.GET_COUNTRIES, payload: countries });
     } catch (e) {
       console.log(e);
@@ -63,10 +66,11 @@ export function getCountryName(name) {
   };
 }
 //________________________________________________________________________________________clear
-export function clear(){
-    return {
-        type:_enum.CLEAR,payload:null
-    }
+export function clear() {
+  return {
+    type: _enum.CLEAR,
+    payload: null,
+  };
 }
 //_______________________________________________________________________________________all Countries
 export function allCountries() {

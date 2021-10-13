@@ -1,8 +1,8 @@
 .div-addAct {
   background: url("../../f_img/fondo2kPaises5.jpg");
-  overflow: hidden;
-  width: 1920px;
-  height: 935px;
+  overflow-y: hidden;
+  height: 937px;
+
 }
 
 .div-set-data {
