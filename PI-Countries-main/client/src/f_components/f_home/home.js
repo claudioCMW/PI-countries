@@ -86,10 +86,10 @@ function Home({ state }) {
               orden
             </option>
             <option className="opciones-Select" value="asc">
-              a-z
+              asc
             </option>
             <option className="opciones-Select" value="des">
-              z-a
+              des
             </option>
             <option className="opciones-Select" value="area">
               area

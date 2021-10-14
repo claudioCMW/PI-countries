@@ -69,7 +69,7 @@
   margin: auto;
   position: fixed;
   right: 90px;
-  bottom: 29px;
+  bottom: 50px;
 }
 .button-abc {
   margin: 0.9px;
@@ -85,6 +85,8 @@
   cursor: pointer;
 }
 .button-abc:hover {
+    
+    border: 0.1em solid black;
   position: relative;
   transform: scale(3, 1.9);
   background: rgba(36, 189, 112, 0.835);
