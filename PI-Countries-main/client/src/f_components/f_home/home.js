@@ -183,7 +183,7 @@ function Home({ state }) {
           abeced(str.toLowerCase());
         }}
       >
-        {str}
+       <h2 className="h2-button-abc">{str}</h2> 
       </button>
     );
   }
