@@ -42,8 +42,8 @@ export default function Nav() {
   return (
     <header>
       <div className="div-nav">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="div-form-inp-but">
+        <form className="form-inp-but"  onSubmit={(e) => handleSubmit(e)}>
+         
             <input
               autoComplete="off"
               name="input"
@@ -51,8 +51,8 @@ export default function Nav() {
               value={input}
               onInput={(e) => validate(e.target.value)}
             ></input>
+       
             <button className="button-input-nav" type="submit"></button>
-          </div>
         </form>
         <div></div>
         <div className="div-createAct">
