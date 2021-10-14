@@ -9,7 +9,7 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-//_____________________________________________________________________________________________post activity
+//__c:CREATE r READ u UPDATE d DELETE___________________________________________________________________________________________post activity
 router.post("/activity", (req, res, next) => {
   var { name, difficulty, duration, season, countries } = req.body;
   var actCreated = [];

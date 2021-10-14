@@ -63,7 +63,7 @@ function Details(props) {
                       <h3>Actividad turistica</h3>
                     </legend>
                     {ActTurs.length > 0 ? (
-                      <div>
+                      <div >
                         {ActTurs.map((e) => (
                           <div key={e.id} className="div-activity">
                             <h2>Nombre: {e.name}</h2>

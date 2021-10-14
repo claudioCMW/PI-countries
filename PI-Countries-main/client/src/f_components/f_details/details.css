@@ -2,10 +2,10 @@
   display: grid;
   grid-template-rows: 5% 90%;
   background: url("../../f_img/fondo2kPaises9.jpg");
-  background-repeat: no-repeat;
   background-attachment: fixed;
-  width: 1920px;
+  width: auto;
   height: 935px;
+  overflow-y: hidden;
 }
 
 .button-home-details {
@@ -19,6 +19,7 @@
   margin: auto;
   margin-top: 30px;
   transition: 0.3ms;
+  
 }
 
 .button-home-details:hover {
@@ -52,9 +53,7 @@ h2 {
   font-size: 0.9em;
   font-family: "verdana";
   margin: auto;
-  margin-top: 5px;
  text-align: center;
- 
 
 }
 
@@ -75,6 +74,8 @@ h2 {
     background: rgba(15, 112, 168, 0.411);
      border-radius: 0.7em;
      border: 1px solid blue;
+     margin: 2px;
+     
 }
 
 .img-details{

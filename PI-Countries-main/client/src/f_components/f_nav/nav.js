@@ -18,7 +18,7 @@ export default function Nav() {
             newValue += value[i];
           }
         }
-        setInput(newValue);
+        setInput(newValue.toLowerCase().replace(" ", ""));
       } else {
         setInput(value.toLowerCase().replace(" ", ""));
       }
@@ -29,7 +29,7 @@ export default function Nav() {
   function handleSubmit(e) {
     e.preventDefault();
     if (input === "") {
-      alert("Ingrese nuevamente" );
+      alert("Ingrese nuevamente");
     } else {
       history.push(`/home/details/${input}`);
     }
@@ -42,17 +42,16 @@ export default function Nav() {
   return (
     <header>
       <div className="div-nav">
-        <form className="form-inp-but"  onSubmit={(e) => handleSubmit(e)}>
-         
-            <input
-              autoComplete="off"
-              name="input"
-              className="input-nav"
-              value={input}
-              onInput={(e) => validate(e.target.value)}
-            ></input>
-       
-            <button className="button-input-nav" type="submit"></button>
+        <form className="form-inp-but" onSubmit={(e) => handleSubmit(e)}>
+          <input
+            autoComplete="off"
+            name="input"
+            className="input-nav"
+            value={input}
+            onChange={(e) => validate(e.target.value)}
+          ></input>
+
+          <button className="button-input-nav" type="submit"></button>
         </form>
         <div></div>
         <div className="div-createAct">
