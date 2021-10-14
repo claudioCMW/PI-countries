@@ -3,7 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import React from "react";
 import Nav from "../f_nav/nav";
 import {
-  allCountries,
+ 
   getCountries,
   _order,
 } from "../../f_redux/f_actions/actions";
