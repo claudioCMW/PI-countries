@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import React from "react";
 import Nav from "../f_nav/nav";
-import { allCountries, getCountries, _order } from "../../f_redux/f_actions/actions";
+import {
+  allCountries,
+  getCountries,
+  _order,
+} from "../../f_redux/f_actions/actions";
 import { useState } from "react";
 import img from "../../f_img/create2.png";
 import search from "../../f_img/cargando2.gif";
@@ -24,7 +28,6 @@ function Home({ state }) {
       setPag(pag - 9);
     }
   }
-
 
   //_________________________________________________________
   function orderCountries(e) {
@@ -52,6 +55,10 @@ function Home({ state }) {
       default:
         break;
     }
+  }
+  //__________________________________________________________orden abecedario
+  function abeced(charac) {
+    dispatch(_order("9" + charac));
   }
 
   //___________________________________________________________
@@ -108,28 +115,57 @@ function Home({ state }) {
             {pag + 9 > countries.length ? "" : ">>"}
           </button>
         </div>
-        <div className="divRowColCountries">
-          {country.map((ct) => (
-            <div key={ct.id} className="div-comp-country">
-              <Link to={`/home/details/${ct.id}`}>
-                <img className="imgFlat" src={ct.imgflat} alt=""></img>
-              </Link>
-              <Link className="link-home" to={`/home/details/${ct.id}`}>
-                <h4>{`Nombre: ${ct.name.toUpperCase()}`}</h4>
-              </Link>
-              <h4>{`Continente: ${ct.continent.toUpperCase()}`}</h4>
-              {ct.ActTurs.length > 0 ? (
-                <img className="country-mas-act" src={img} alt="" />
-              ) : (
-                <></>
-              )}
-            </div>
-          ))}
+        <div className="container-card">
+          <div className="divRowColCountries">
+            {country.map((ct) => (
+              <div key={ct.id} className="div-comp-country">
+                <Link to={`/home/details/${ct.id}`}>
+                  <img className="imgFlat" src={ct.imgflat} alt=""></img>
+                </Link>
+                <Link className="link-home" to={`/home/details/${ct.id}`}>
+                  <h4>{`Nombre: ${ct.name.toUpperCase()}`}</h4>
+                </Link>
+                <h4>{`Continente: ${ct.continent.toUpperCase()}`}</h4>
+                {ct.ActTurs.length > 0 ? (
+                  <img className="country-mas-act" src={img} alt="" />
+                ) : (
+                  <></>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="div-abc">
+            <Abc str="A"></Abc>
+            <Abc str="B"></Abc>
+            <Abc str="C"></Abc>
+            <Abc str="D"></Abc>
+            <Abc str="E"></Abc>
+            <Abc str="F"></Abc>
+            <Abc str="G"></Abc>
+            <Abc str="H"></Abc>
+            <Abc str="I"></Abc>
+            <Abc str="J"></Abc>
+            <Abc str="K"></Abc>
+            <Abc str="L"></Abc>
+            <Abc str="M"></Abc>
+            <Abc str="N"></Abc>
+            <Abc str="O"></Abc>
+            <Abc str="P"></Abc>
+            <Abc str="Q"></Abc>
+            <Abc str="R"></Abc>
+            <Abc str="S"></Abc>
+            <Abc str="t"></Abc>
+            <Abc str="U"></Abc>
+            <Abc str="V"></Abc>
+            <Abc str="W"></Abc>
+            <Abc str="X"></Abc>
+            <Abc str="Y"></Abc>
+            <Abc str="Z"></Abc>
+          </div>
         </div>
       </div>
     );
   } else {
-    
     dispatch(getCountries());
     return (
       <div className="fondo-details">
@@ -137,7 +173,22 @@ function Home({ state }) {
       </div>
     );
   }
+  //__________________________________________________________________________componente abc
+  function Abc(props) {
+    const { str } = props;
+    return (
+      <button
+        className="button-abc"
+        onClick={() => {
+          abeced(str.toLowerCase());
+        }}
+      >
+        {str}
+      </button>
+    );
+  }
 }
+//____________________________________________________
 function mapStateToProps(state) {
   return { state };
 }

@@ -2,7 +2,6 @@
   background: url("../../f_img/fondo2kPaises5.jpg");
   overflow-y: hidden;
   height: 937px;
-
 }
 
 .div-set-data {
@@ -28,9 +27,8 @@
   grid-template-rows: 20% 20% 20% 20%;
   padding-right: 30px;
   margin-top: 50px;
-  align-items:flex-end;
+  align-items: flex-end;
   text-align: right;
- 
 }
 
 .div-out-right {
@@ -82,30 +80,24 @@
 }
 
 .button-home {
-  background: url("../../f_img/home.png"),rgba(5, 11, 88, 0.486);
+  background: url("../../f_img/home.png"), rgba(5, 11, 88, 0.486);
   background-repeat: no-repeat;
   width: 70px;
   height: 65px;
   border: 1px solid rgba(6, 6, 7, 0.692) inset;
   border-radius: 0.7em;
   cursor: pointer;
-  float: center;
-  margin-right: -590px;
+  position: relative;
+  top: 15px;
   margin-top: 10px;
   transition: 0.3ms;
-
 }
 
-
-
-
-.button-home:hover{
-    background: url("../../f_img/home2.png"),rgba(6, 12, 95, 0.671) ;
-    background-repeat: no-repeat;
- border: 1px solid rgba(6, 6, 7, 0.692) inset;
+.button-home:hover {
+  background: url("../../f_img/home2.png"), rgba(6, 12, 95, 0.671);
+  background-repeat: no-repeat;
+  border: 1px solid rgba(6, 6, 7, 0.692) inset;
 }
-
-
 
 .input {
   width: 215px;
@@ -166,7 +158,6 @@
   max-width: 127px;
   height: 12px;
   text-align: center;
-
 }
 
 .uli {
@@ -175,14 +166,13 @@
   height: 100px;
   position: relative;
   max-width: 180px;
-  
+
   padding-right: 20px;
   text-decoration: none;
 }
-li{
+li {
   list-style: none;
   display: block;
-
 }
 
 .details-inputs {
@@ -198,7 +188,6 @@ li{
   text-align: justify;
 }
 
-.rango-dificultad{
-    width: 220px;
-    
+.rango-dificultad {
+  width: 220px;
 }

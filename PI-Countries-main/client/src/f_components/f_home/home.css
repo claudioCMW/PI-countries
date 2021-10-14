@@ -26,17 +26,16 @@
 }
 .div-comp-country:hover {
   box-shadow: 10px 15px 0.3em rgba(70, 171, 238, 0.466);
-  width: 420px;
-  height: 420px;
+  transform: scale(1.05, 1.05);
 }
 .imgFlat {
   min-height: 290px;
   width: 370px;
-    height: 290px;
+  height: 290px;
   max-width: 370px;
   border-radius: 0.5em;
-margin: 10px;
-align-items: center;
+  margin: 10px;
+  align-items: center;
 
   border: 2px solid rgb(32, 123, 175);
 }
@@ -46,20 +45,55 @@ align-items: center;
   height: 40px;
   margin: auto;
 }
+.container-card {
+  display: grid;
+  grid-template-columns: 97% 3%;
+  margin: 15px;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
 .divRowColCountries {
   display: grid;
-  width: 1500px;
+  width: auto;
   height: auto;
+  margin: 10px;
+  position: relative;
+  z-index: -10px;
+  top: 1.5%;
   grid-template-columns: 33% 33% 33%;
+}
+.div-abc {
+  display: grid;
+  grid-template-columns: 100%;
   margin: auto;
-  margin-top: 13px;
-  margin-bottom: 20px;
+  position: fixed;
+  right: 90px;
+  bottom: 29px;
+}
+.button-abc {
+  margin: 0.9px;
+  width: 26px;
+  height: 26px;
+  font-size: 1em;
+  background: transparent;
+  color: white;
+  border-radius: 19.5px;
+
+  border: transparent;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.button-abc:hover {
+  position: relative;
+  transform: scale(3, 1.9);
+  background: rgba(36, 189, 112, 0.835);
 }
 
 .divButtonsPage {
   display: grid;
   position: relative;
-  left: 14px;
+  right:  15px;
   grid-template-columns: 30% 30% 30%;
   margin: auto;
   width: 450px;
@@ -86,8 +120,7 @@ align-items: center;
   margin-top: 5px;
 }
 .select:hover {
-  width: 120px;
-  height: 50px;
+  transform: scale(1.19, 1.19);
   box-shadow: 0px 8px 0.4em rgb(23, 127, 197);
 }
 
@@ -105,18 +138,16 @@ align-items: center;
   transition-duration: 0.3s;
 }
 .button-sig-ant:hover {
-  width: 125px;
-  height: 50px;
+  transform: scale(1.19, 1.19);
   box-shadow: 0px 8px 0.2em rgb(17, 128, 202);
 }
 
 h4 {
   text-decoration: none;
-  margin:15px;
+  margin: 15px;
   color: rgb(176, 214, 230);
   font-size: 0.8em;
   font-family: "verdana";
- 
 }
 
 .link-home {
