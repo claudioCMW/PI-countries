@@ -64,6 +64,10 @@
 }
 .div-abc {
   display: grid;
+  background-color: rgba(6, 10, 61, 0.746);
+  border-radius: 0.7em;
+  box-shadow: 3px 3px 0.7em white;
+  border: 0.1em solid rgb(185, 219, 218);
   grid-template-columns: 100%;
   margin: auto;
   position: fixed;
@@ -76,8 +80,7 @@
   height: 25px;
   align-items: center;
   background: transparent;
-  
-  border-radius: 19.5px;
+  border-radius: 9.5px;
   border: transparent;
   transition: 0.2s;
   cursor: pointer;
@@ -86,7 +89,7 @@
   
   border: 0.1em solid rgba(209, 209, 226, 0.986);
   position: relative;
-  transform: scale(1.9, 1.9);
+  transform: scale(2.1, 2.1);
   background: rgba(114, 14, 160, 0.712);
 }
 .h2-button-abc {

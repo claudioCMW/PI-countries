@@ -2,14 +2,11 @@ import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import React from "react";
 import Nav from "../f_nav/nav";
-import {
- 
-  getCountries,
-  _order,
-} from "../../f_redux/f_actions/actions";
+import { getCountries, _order } from "../../f_redux/f_actions/actions";
 import { useState } from "react";
 import img from "../../f_img/create2.png";
 import search from "../../f_img/cargando2.gif";
+import { useEffect } from "react";
 require("./home.css");
 
 //___________________________________________________________________
@@ -28,6 +25,10 @@ function Home({ state }) {
       setPag(pag - 9);
     }
   }
+//____________________________________reseteo pag por cada ordenamiento
+  useEffect(() => {
+    return setPag(0);
+  }, [countries]);
 
   //_________________________________________________________
   function orderCountries(e) {
@@ -161,7 +162,6 @@ function Home({ state }) {
             <Abc str="X"></Abc>
             <Abc str="Y"></Abc>
             <Abc str="Z"></Abc>
-          
           </div>
         </div>
       </div>
@@ -184,7 +184,7 @@ function Home({ state }) {
           abeced(str.toLowerCase());
         }}
       >
-       <h2 className="h2-button-abc">{str}</h2> 
+        <h2 className="h2-button-abc">{str}</h2>
       </button>
     );
   }

@@ -9,8 +9,6 @@ export default function Principal() {
   const dispatch = useDispatch();
   const history = useHistory();
   useEffect(() =>  dispatch(allCountries())
-   
-    
   ,[dispatch]);
   
   return (
