@@ -111,7 +111,7 @@ export function AddActivity(props) {
     alert("Actividad Creada.");
   }
 
-  //__________________________________________________________________________________
+  //__________________________________________________________________________________valida input name
   function valida(e) {
     if (e.value === "") {
       setErrors({ ...errors, input: "campo obligatorio", act_enviar: true });
@@ -137,7 +137,7 @@ export function AddActivity(props) {
 
           <div className="div-out-right">
             <input
-              autoComplete="none"
+              autoComplete="off"
               className="input"
               value={state.name}
               name="input"
