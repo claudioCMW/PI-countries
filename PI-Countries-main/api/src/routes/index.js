@@ -19,7 +19,7 @@ router.post("/activity", (req, res, next) => {
       return countries.map((acty) => {
         return Countrie.findOne({
           where: {
-            name: acty.toLowerCase(),
+            name:acty.toLowerCase(),
           },
         });
       });
