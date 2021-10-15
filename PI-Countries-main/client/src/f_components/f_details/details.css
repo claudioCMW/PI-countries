@@ -9,7 +9,7 @@
 }
 
 .button-home-details {
-  background: url("../../f_img/home.png"),rgba(5, 11, 88, 0.486);
+  background: url("../../f_img/home.png"),rgba(2, 4, 36, 0.596);
   background-repeat: no-repeat;
   border: 1px solid rgba(6, 6, 7, 0.692) inset;
   width: 70px;
@@ -23,7 +23,7 @@
 }
 
 .button-home-details:hover {
-  background: url("../../f_img/home2.png"),rgba(5, 11, 88, 0.486);
+  background: url("../../f_img/home2.png"),rgba(2, 4, 31, 0.76);
   background-repeat: no-repeat;
   border: 1px solid rgba(6, 6, 7, 0.692) inset;
 }

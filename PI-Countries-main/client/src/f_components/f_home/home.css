@@ -53,6 +53,7 @@
   height: auto;
 }
 .divRowColCountries {
+  
   display: grid;
   width: auto;
   height: auto;

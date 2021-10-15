@@ -80,7 +80,7 @@
 }
 
 .button-home {
-  background: url("../../f_img/home.png"), rgba(5, 11, 88, 0.486);
+  background: url("../../f_img/home.png"), rgba(1, 3, 32, 0.747);
   background-repeat: no-repeat;
   width: 70px;
   height: 65px;
@@ -94,7 +94,7 @@
 }
 
 .button-home:hover {
-  background: url("../../f_img/home2.png"), rgba(6, 12, 95, 0.671);
+  background: url("../../f_img/home2.png"), rgba(20, 23, 77, 0.753);
   background-repeat: no-repeat;
   border: 1px solid rgba(6, 6, 7, 0.692) inset;
 }
