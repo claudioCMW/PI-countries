@@ -23,13 +23,16 @@ function AddActivity(props) {
     countries: [],
     difficulty: 0,
   });
-
+  //________________________________________________cuando se crea el componente
   useEffect(() => {
     if (countries) {
       setCountry(ordenamiento(countries, "asc"));
     }
   }, [countries]);
-
+  //________________________________________________________cuando se desmonta
+  useEffect(() => {
+    return () => dispath(getCountries());
+  }, []);
   //______________________________________cambios en los campos
   useEffect(() => {
     //update de estado

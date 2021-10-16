@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import React from "react";
 import Nav from "../f_nav/nav";
 import { getCountries } from "../../f_redux/f_actions/actions";
-import { useState } from "react";
+import React,{ useState, useEffect} from "react";
 import img from "../../f_img/create2.png";
 import search from "../../f_img/cargando2.gif";
+import search2 from "../../f_img/search7.gif";
 import { ordenamiento } from "./logica";
-import { useEffect } from "react";
+import { useHistory } from "react-router";
 require("./home.css");
 
 //___________________________________________________________________
 function Home({ state }) {
   const dispatch = useDispatch();
+  const history=useHistory();
   var { countries } = state;
   var [pag, setPag] = useState(0);
   var [country, setCon] = useState([]); //copia para ser  modificada
@@ -49,7 +50,14 @@ function Home({ state }) {
         setCon(ordenamiento(countries, "area"));
         break;
       case "act":
-        setCon(ordenamiento(countries, "act"));
+        var actividades = ordenamiento(countries, "act");
+        
+        if (actividades.length>0) {
+            console.log("TIENE")
+          setCon(actividades);
+        } else {
+          setCon("none");
+        }
         break;
       case "pob":
         setCon(ordenamiento(countries, "pob"));
@@ -66,7 +74,20 @@ function Home({ state }) {
   //___________________________________________________________
   if (countries) {
     if (country.length) {
-      coun = country.slice(pag, pag + 9);
+      if (country !== "none") {
+        coun = country.slice(pag, pag + 9);
+      } else {
+        return (
+          <div className="fondo-details">
+            <button
+              className="button-home-details"
+              onClick={() =>  setCon(ordenamiento(countries, "asc"))}
+            ></button>
+            <img className="img-search-no-found" src={search2} alt="" />
+            <h1>NOT FOUND ACTIVITIES</h1>
+          </div>
+        );
+      }
     } else {
       setCon(countries.map((e) => e));
       coun = country.slice(pag, pag + 9);
@@ -139,7 +160,6 @@ function Home({ state }) {
                 ) : (
                   <></>
                 )}
-                
               </div>
             ))}
           </div>
