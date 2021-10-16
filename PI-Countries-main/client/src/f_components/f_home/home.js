@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import Nav from "../f_nav/nav";
 import { getCountries } from "../../f_redux/f_actions/actions";
-import React,{ useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import img from "../../f_img/create2.png";
 import search from "../../f_img/cargando2.gif";
 import search2 from "../../f_img/search7.gif";
@@ -13,7 +13,7 @@ require("./home.css");
 //___________________________________________________________________
 function Home({ state }) {
   const dispatch = useDispatch();
-  const history=useHistory();
+  const history = useHistory();
   var { countries } = state;
   var [pag, setPag] = useState(0);
   var [country, setCon] = useState([]); //copia para ser  modificada
@@ -51,9 +51,9 @@ function Home({ state }) {
         break;
       case "act":
         var actividades = ordenamiento(countries, "act");
-        
-        if (actividades.length>0) {
-            console.log("TIENE")
+
+        if (actividades.length > 0) {
+          console.log("TIENE");
           setCon(actividades);
         } else {
           setCon("none");
@@ -81,7 +81,7 @@ function Home({ state }) {
           <div className="fondo-details">
             <button
               className="button-home-details"
-              onClick={() =>  setCon(ordenamiento(countries, "asc"))}
+              onClick={() => setCon(ordenamiento(countries, "asc"))}
             ></button>
             <img className="img-search-no-found" src={search2} alt="" />
             <h1>NOT FOUND ACTIVITIES</h1>
@@ -105,6 +105,16 @@ function Home({ state }) {
           >
             {pag === 0 ? "" : "<<"}
           </button>
+          <select
+            defaultValue={"DEFAULT"}
+            className="select"
+            name="select"
+            onChange={(e) => orderCountries(e)}
+          >
+            <option value="DEFAULT" disabled>
+              actividades
+            </option>
+          </select>
           <select
             defaultValue={"DEFAULT"}
             className="select"

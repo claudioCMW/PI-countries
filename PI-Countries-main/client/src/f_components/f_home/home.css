@@ -55,7 +55,6 @@
   height: auto;
 }
 .divRowColCountries {
-  
   display: grid;
   min-width: 1000px;
   height: 1300px;
@@ -79,7 +78,7 @@
   bottom: 50px;
 }
 .button-abc {
-  margin: 2.0px;
+  margin: 2px;
   width: 25px;
   height: 25px;
   align-items: center;
@@ -90,29 +89,31 @@
   cursor: pointer;
 }
 .button-abc:hover {
-  
   border: 0.1em solid rgba(209, 209, 226, 0.986);
   position: relative;
   transform: scale(2.1, 2.1);
   background: rgba(114, 14, 160, 0.712);
 }
 .h2-button-abc {
-
   color: rgb(248, 248, 248);
   margin: auto;
 }
 .divButtonsPage {
   display: grid;
-  position: relative;
-  right: 15px;
-  grid-template-columns: 30% 30% 30%;
   margin: auto;
-  width: 450px;
+  position: relative;
+  right: 95px;
+  grid-template-columns: 30% 30% 30% 30%;
+
+  width: 520px;
   height: 40px;
 }
 .opciones-Select {
   color: rgb(255, 255, 255);
-  font-size: 1.1em;
+  transform: scale(1.19, 1.19);
+  position: relative;
+  right: 30px;
+  margin: auto;
   background: rgba(3, 11, 121, 0.801);
 }
 .select {
@@ -121,7 +122,7 @@
   border-radius: 0.3em;
   height: 45px;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
   font-family: "verdana";
   border: 2px solid rgb(163, 163, 202);
   box-shadow: 0px 8px 0.2em rgb(57, 156, 223);
