@@ -2,33 +2,34 @@ import { Link } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import React from "react";
 import Nav from "../f_nav/nav";
-import { getCountries, _order } from "../../f_redux/f_actions/actions";
+import { getCountries } from "../../f_redux/f_actions/actions";
 import { useState } from "react";
 import img from "../../f_img/create2.png";
 import search from "../../f_img/cargando2.gif";
+import { ordenamiento } from "./logica";
 import { useEffect } from "react";
 require("./home.css");
 
 //___________________________________________________________________
 function Home({ state }) {
-  var { countries } = state;
   const dispatch = useDispatch();
+  var { countries } = state;
   var [pag, setPag] = useState(0);
-  var country;
+  var [country, setCon] = useState([]); //copia para ser  modificada
+  var coun;
   //______________________________________________________
   function changePag(e) {
     const { name } = e.target;
-
     if (name === "sig") {
       setPag(pag + 9);
     } else {
       setPag(pag - 9);
     }
   }
-//____________________________________reseteo pag por cada ordenamiento
+  //____________________________________reseteo pag por cada ordenamiento
   useEffect(() => {
-    return setPag(0);
-  }, [countries]);
+    setPag(0);
+  }, [country]);
 
   //_________________________________________________________
   function orderCountries(e) {
@@ -36,22 +37,22 @@ function Home({ state }) {
 
     switch (value) {
       case "asc":
-        dispatch(_order("asc"));
+        setCon(ordenamiento(countries, "asc"));
         break;
       case "des":
-        dispatch(_order("des"));
+        setCon(ordenamiento(countries, "des"));
         break;
       case "cont":
-        dispatch(_order("cont"));
+        setCon(ordenamiento(countries, "cont"));
         break;
       case "area":
-        dispatch(_order("area"));
+        setCon(ordenamiento(countries, "area"));
         break;
       case "act":
-        dispatch(_order("act"));
+        setCon(ordenamiento(countries, "act"));
         break;
       case "pob":
-        dispatch(_order("pob"));
+        setCon(ordenamiento(countries, "pob"));
         break;
       default:
         break;
@@ -59,12 +60,18 @@ function Home({ state }) {
   }
   //__________________________________________________________orden abecedario
   function abeced(charac) {
-    dispatch(_order("9" + charac));
+    setCon(ordenamiento(countries, "9" + charac));
   }
 
   //___________________________________________________________
   if (countries) {
-    country = countries.slice(pag, pag + 9);
+    if (country.length) {
+      coun = country.slice(pag, pag + 9);
+    } else {
+      setCon(countries.map((e) => e));
+      coun = country.slice(pag, pag + 9);
+    }
+
     return (
       <div className="homeDiv">
         <Nav></Nav>
@@ -107,18 +114,18 @@ function Home({ state }) {
           </select>
           <button
             className={
-              pag + 9 > countries.length ? "button-disabled" : "button-sig-ant"
+              pag + 9 > country.length ? "button-disabled" : "button-sig-ant"
             }
             name="sig"
             onClick={(e) => changePag(e)}
-            disabled={pag + 9 > countries.length ? true : false}
+            disabled={pag + 9 > country.length ? true : false}
           >
-            {pag + 9 > countries.length ? "" : ">>"}
+            {pag + 9 > country.length ? "" : ">>"}
           </button>
         </div>
         <div className="container-card">
           <div className="divRowColCountries">
-            {country.map((ct) => (
+            {coun.map((ct) => (
               <div key={ct.id} className="div-comp-country">
                 <Link to={`/home/details/${ct.id}`}>
                   <img className="imgFlat" src={ct.imgflat} alt=""></img>
@@ -132,7 +139,7 @@ function Home({ state }) {
                 ) : (
                   <></>
                 )}
-              
+                
               </div>
             ))}
           </div>

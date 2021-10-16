@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { addActi, getCountries, _order } from "../../f_redux/f_actions/actions";
+import { ordenamiento } from "../f_home/logica";
+import { addActi, getCountries } from "../../f_redux/f_actions/actions";
 require("./addActivity.css");
 
-export function AddActivity(props) {
+function AddActivity(props) {
   const history = useHistory();
   const { countries } = props;
   const dispath = useDispatch();
@@ -14,7 +15,7 @@ export function AddActivity(props) {
     input: "",
     act_enviar: true,
   }); //valida y activa input/enviar
-
+  var [country, setCountry] = useState([]);
   var [state, setState] = useState({
     name: "",
     duration: 0,
@@ -22,18 +23,12 @@ export function AddActivity(props) {
     countries: [],
     difficulty: 0,
   });
-  useEffect(() => {
-    return () => dispath(getCountries());
-  }, [dispath]);
 
-  useEffect(
-    () => {
-      if (countries) {
-        return dispath(_order("asc"));
-      }
-    },//cuando se crea;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []);
+  useEffect(() => {
+    if (countries) {
+      setCountry(ordenamiento(countries, "asc"));
+    }
+  }, [countries]);
 
   //______________________________________cambios en los campos
   useEffect(() => {
@@ -196,7 +191,7 @@ export function AddActivity(props) {
               <option value="DEFAULT" disabled>
                 seleccionar pais
               </option>
-              {countries.map((coun, index) => (
+              {country.map((coun, index) => (
                 <option className="optionss" key={coun.id} value={coun.name}>
                   {`${index + 1}-${coun.name}`}
                 </option>
@@ -264,7 +259,7 @@ export function AddActivity(props) {
       </div>
     );
   } else {
-    history.push("/home");
+    dispath(getCountries());
 
     return <></>;
   }
