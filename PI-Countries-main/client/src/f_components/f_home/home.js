@@ -135,13 +135,13 @@ function Home({ state }) {
           </select>
           <button
             className={
-              pag + 9 > country.length ? "button-disabled" : "button-sig-ant"
+              pag + 9 >= country.length ? "button-disabled" : "button-sig-ant"
             }
             name="sig"
             onClick={(e) => changePag(e)}
             disabled={pag + 9 > country.length ? true : false}
           >
-            {pag + 9 > country.length ? "" : ">>"}
+            {pag + 9 >= country.length ? "" : ">>"}
           </button>
         </div>
         <div className="container-card">
