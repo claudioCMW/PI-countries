@@ -1,10 +1,6 @@
 import Enum from "../../Enumeradores";
 import axios from "axios";
 const _enum = new Enum();
-//___________________________________________________________________order asc
-export function _order(arg) {
-  return { type: _enum.ORDER, payload: arg };
-}
 
 //_____________________________________________________________________GET
 export function getCountries() {

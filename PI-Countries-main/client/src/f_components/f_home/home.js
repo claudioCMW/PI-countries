@@ -7,13 +7,11 @@ import img from "../../f_img/create2.png";
 import search from "../../f_img/cargando2.gif";
 import search2 from "../../f_img/search7.gif";
 import { ordenamiento } from "./logica";
-import { useHistory } from "react-router";
 require("./home.css");
 
 //___________________________________________________________________
 function Home({ state }) {
   const dispatch = useDispatch();
-  const history = useHistory();
   var { countries } = state;
   var [pag, setPag] = useState(0);
   var [country, setCon] = useState([]); //copia para ser  modificada
@@ -37,6 +35,7 @@ function Home({ state }) {
   //_____________________________________________________
   useEffect(() => {
     selectActivities();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countries]);
 
   //_________________________________________________________

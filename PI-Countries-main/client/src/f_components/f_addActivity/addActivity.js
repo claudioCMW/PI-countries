@@ -34,7 +34,7 @@ function AddActivity(props) {
     return function () {
       return dispath(getCountries());
     };
-  }, []);
+  }, [dispath]);
   //______________________________________cambios en los campos
   useEffect(() => {
     //update de estado
