@@ -125,7 +125,7 @@
   font-size: 1em;
   font-family: "verdana";
   border: 2px solid rgb(163, 163, 202);
-  box-shadow: 0px 8px 0.2em rgb(57, 156, 223);
+  box-shadow: 7px 7px 0.2em rgb(57, 156, 223);
   width: 122px;
   transition-duration: 0.3s;
   margin: auto;
@@ -133,7 +133,7 @@
 }
 .select:hover {
   transform: scale(1.19, 1.19);
-  box-shadow: 0px 8px 0.4em rgb(23, 127, 197);
+  box-shadow: 7px 7px 0.4em rgb(23, 127, 197);
 }
 
 .button-sig-ant {
@@ -146,12 +146,12 @@
   width: 120px;
   height: 45px;
   border: 2px solid rgb(218, 217, 240);
-  box-shadow: 0px 8px 0.1em rgb(57, 156, 223);
+  box-shadow: 7px 7px 0.1em rgb(57, 156, 223);
   transition-duration: 0.3s;
 }
 .button-sig-ant:hover {
   transform: scale(1.19, 1.19);
-  box-shadow: 0px 8px 0.2em rgb(17, 128, 202);
+  box-shadow: 7px 7px 0.2em rgb(17, 128, 202);
 }
 
 h4 {

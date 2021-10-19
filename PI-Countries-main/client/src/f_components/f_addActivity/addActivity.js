@@ -137,7 +137,7 @@ function AddActivity(props) {
 
           <div className="div-out-right">
             <input
-              autoComplete="off"
+              autoComplete="none"
               className="input"
               value={state.name}
               name="input"
