@@ -18,7 +18,7 @@
   width: 400px;
   height: 400px;
   display: grid;
-  background: rgba(1, 15, 61, 0.822);
+  background: rgba(1, 15, 61, 0.89);
   grid-template-rows: 75% 10% 10% 5%;
   border: 2px solid rgb(56, 133, 221);
   box-shadow: 7px 7px 0.3em rgb(57, 156, 223);
@@ -70,7 +70,7 @@
   background-color: rgba(6, 10, 61, 0.746);
   border-radius: 0.7em;
   box-shadow: 3px 3px 0.7em white;
-  border: 0.1em solid rgb(185, 219, 218);
+  border: 0.1em solid rgb(230, 235, 243);
   grid-template-columns: 100%;
   margin: auto;
   position: fixed;
