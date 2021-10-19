@@ -10,25 +10,28 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 //__c:CREATE r READ u UPDATE d DELETE___________________________________________________________________________________________post activity
-router.post("/activity", (req, res, next) => {
+router.post("/activity", async (req, res, next) => {
   var { name, difficulty, duration, season, countries } = req.body;
-  var actCreated = [];
-  ActTur.create({ name, difficulty, duration, season })
-    .then((act) => {
-      actCreated = act;
-      return countries.map((acty) => {
-        return Countrie.findOne({
-          where: {
-            name:acty.toLowerCase(),
-          },
-        });
-      });
-    })
-    .then((res) => {
-      return Promise.all(res);
-    })
+
+ try{
+  var [reg, flat] = await ActTur.findOrCreate({
+    where: { name },
+    defaults: { name, difficulty, duration, season },
+  });
+  countries = countries.map((acty) => {
+    return Countrie.findOne({
+      where: {
+        name: acty.toLowerCase(),
+      },
+    });
+  });
+}catch(e){
+    next(e);
+}
+
+  Promise.all(countries)
     .then((fin) => {
-      actCreated.addCountries(fin.filter((e) => e !== null));
+      reg.addCountries(fin.filter((e) => e !== null));
       res.json("create");
     })
     .catch((e) => {
@@ -66,7 +69,6 @@ router.get("/countries", (req, res, next) => {
         res.status(200).send(e);
       })
       .catch(() => {
-      
         next(e);
       });
   }
@@ -93,7 +95,6 @@ router.get("/countries", async (req, res, next) => {
       res.status(200).send(e);
     })
     .catch(() => {
-     
       next(e);
     });
 });

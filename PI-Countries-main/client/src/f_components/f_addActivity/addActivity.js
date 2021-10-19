@@ -31,7 +31,9 @@ function AddActivity(props) {
   }, [countries]);
   //________________________________________________________cuando se desmonta
   useEffect(() => {
-    return () => dispath(getCountries());
+    return function () {
+      return dispath(getCountries());
+    };
   }, []);
   //______________________________________cambios en los campos
   useEffect(() => {
@@ -44,12 +46,12 @@ function AddActivity(props) {
   function validate({ value, name }) {
     if (name === "input") {
       setErrors({ ...errors, input: "" });
-      setState({ ...state, name: value.toLowerCase() });
+      setState({ ...state, name: value.toLowerCase().replace(" ", "") });
       if (state.name === "") {
         setErrors({ ...errors, act_enviar: true });
       } else {
-        if (value.length > 20) {
-          setState({ ...state, name: value.slice(0, 20) });
+        if (value.length > 15) {
+          setState({ ...state, name: value.slice(0, 15) });
         }
       }
     }

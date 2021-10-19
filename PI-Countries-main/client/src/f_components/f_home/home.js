@@ -17,6 +17,9 @@ function Home({ state }) {
   var { countries } = state;
   var [pag, setPag] = useState(0);
   var [country, setCon] = useState([]); //copia para ser  modificada
+  var [activities, setActivities] = useState([]); //array de nombres para select activities
+  var [defaultt, setDefaultt] = useState("DEFAULT");
+
   var coun;
   //______________________________________________________
   function changePag(e) {
@@ -31,11 +34,15 @@ function Home({ state }) {
   useEffect(() => {
     setPag(0);
   }, [country]);
+  //_____________________________________________________
+  useEffect(() => {
+    selectActivities();
+  }, [countries]);
 
   //_________________________________________________________
   function orderCountries(e) {
     const { value } = e.target;
-
+    setDefaultt("DEFAULT");
     switch (value) {
       case "asc":
         setCon(ordenamiento(countries, "asc"));
@@ -53,7 +60,6 @@ function Home({ state }) {
         var actividades = ordenamiento(countries, "act");
 
         if (actividades.length > 0) {
-          console.log("TIENE");
           setCon(actividades);
         } else {
           setCon("none");
@@ -68,9 +74,19 @@ function Home({ state }) {
   }
   //__________________________________________________________orden abecedario
   function abeced(charac) {
-    setCon(ordenamiento(countries, "9" + charac));
+    if (charac.charAt(0) !== "8") {
+      setDefaultt("DEFAULT");//reset select default
+      setCon(ordenamiento(countries, charac));
+    } else {
+      setDefaultt(charac.substring(1));
+      setCon(ordenamiento(countries, charac));
+    }
   }
-
+  //_________________________________________________________________________select activities names
+  function selectActivities() {
+    setDefaultt("DEFAULT"); //reset select default
+    setActivities(ordenamiento(countries, "nameAct"));
+  }
   //___________________________________________________________
   if (countries) {
     if (country.length) {
@@ -90,6 +106,7 @@ function Home({ state }) {
       }
     } else {
       setCon(countries.map((e) => e));
+      selectActivities();
       coun = country.slice(pag, pag + 9);
     }
 
@@ -106,14 +123,22 @@ function Home({ state }) {
             {pag === 0 ? "" : "<<"}
           </button>
           <select
-            defaultValue={"DEFAULT"}
+            value={defaultt}
             className="select"
-            name="select"
-            onChange={(e) => orderCountries(e)}
+            onChange={(e) => abeced("8" + e.target.value)}
           >
             <option value="DEFAULT" disabled>
-              actividades
+              actividad
             </option>
+            {activities.map((activity) => (
+              <option
+                key={activity}
+                className="opciones-Select"
+                value={activity}
+              >
+                {activity}
+              </option>
+            ))}
           </select>
           <select
             defaultValue={"DEFAULT"}
@@ -133,14 +158,14 @@ function Home({ state }) {
             <option className="opciones-Select" value="area">
               area
             </option>
-            <option className="opciones-Select" value="act">
-              actividad
-            </option>
             <option className="opciones-Select" value="pob">
               población
             </option>
             <option className="opciones-Select" value="cont">
               continente
+            </option>
+            <option className="opciones-Select" value="act">
+              actividades
             </option>
           </select>
           <button
@@ -206,6 +231,7 @@ function Home({ state }) {
     );
   } else {
     dispatch(getCountries());
+
     return (
       <div className="fondo-details">
         <img className="img-search-no-found" src={search} alt="" />
@@ -219,7 +245,7 @@ function Home({ state }) {
       <button
         className="button-abc"
         onClick={() => {
-          abeced(str.toLowerCase());
+          abeced("9" + str.toLowerCase());
         }}
       >
         <h2 className="h2-button-abc">{str}</h2>
