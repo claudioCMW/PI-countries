@@ -34,8 +34,7 @@ function Home({ state }) {
   }, [country]);
   //_____________________________________________________
   useEffect(() => {
-    selectActivities();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setActivities(ordenamiento(countries, "nameAct"));
   }, [countries]);
 
   //_________________________________________________________
