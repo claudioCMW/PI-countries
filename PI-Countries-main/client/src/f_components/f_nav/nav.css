@@ -1,11 +1,15 @@
 .div-nav {
   display: grid;
-  background-color: rgba(4, 4, 37, 0.815);
+  position: relative;
+  background:url("../../f_img/paises111.png"), rgba(4, 4, 37, 0.815);
+ 
   grid-template-columns: 20% 70% 10%;
   border: 2px solid rgb(15, 6, 134);
   box-shadow: 0em 1px 0.9em rgba(59, 167, 255, 0.767);
   border-radius: 0.5em;
 }
+
+
 .input-nav {
   width: 220px;
   margin: auto;
