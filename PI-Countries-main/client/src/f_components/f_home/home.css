@@ -20,7 +20,7 @@
   display: grid;
   background: rgba(1, 15, 61, 0.89);
   grid-template-rows: 75% 10% 10% 5%;
-  border: 2px solid rgb(56, 133, 221);
+ 
   box-shadow: 7px 7px 0.3em rgb(57, 156, 223);
   border-radius: 0.4em;
   transition-duration: 0.3s;
@@ -28,6 +28,7 @@
 .div-comp-country:hover {
   box-shadow: 10px 15px 0.3em rgba(70, 171, 238, 0.466);
   transform: scale(1.05, 1.05);
+
 }
 .imgFlat {
   min-height: 290px;
@@ -37,7 +38,7 @@
   border-radius: 0.5em;
   margin: 10px;
   align-items: center;
-  border: 2px solid rgb(32, 123, 175);
+  
 }
 
 .country-mas-act {
@@ -69,14 +70,15 @@
   display: grid;
   background-color: rgba(6, 10, 61, 0.746);
   border-radius: 0.7em;
-  box-shadow: 3px 3px 0.7em white;
-  border: 0.1em solid rgb(230, 235, 243);
+  box-shadow: 3px 6px 0.9em white;
   grid-template-columns: 100%;
   margin: auto;
   position: fixed;
   right: 90px;
   bottom: 50px;
+ 
 }
+
 .button-abc {
   margin: 2px;
   width: 25px;
@@ -87,6 +89,7 @@
   border: transparent;
   transition: 0.2s;
   cursor: pointer;
+  
 }
 .button-abc:hover {
   border: 0.1em solid rgba(209, 209, 226, 0.986);
@@ -113,8 +116,9 @@
   transform: scale(1.19, 1.19);
   position: relative;
   right: 30px;
+  
   margin: auto;
-  background: rgba(3, 11, 121, 0.801);
+  background: rgba(3, 11, 121, 0.774);
 }
 .select {
   background: rgba(3, 19, 90, 0.664);
@@ -124,7 +128,7 @@
   text-align: center;
   font-size: 1em;
   font-family: "verdana";
-  border: 2px solid rgb(163, 163, 202);
+  border: 2px solid rgba(227, 228, 233, 0.329);
   box-shadow: 7px 7px 0.2em rgb(57, 156, 223);
   width: 122px;
   transition-duration: 0.3s;
@@ -145,7 +149,7 @@
   font-size: 2em;
   width: 120px;
   height: 45px;
-  border: 2px solid rgb(218, 217, 240);
+  border: 2px solid rgba(228, 230, 236, 0.418);
   box-shadow: 7px 7px 0.1em rgb(57, 156, 223);
   transition-duration: 0.3s;
 }

@@ -7,6 +7,14 @@ const { Countrie, ActTur } = require("../db.js");
 
 const router = Router();
 
+const obj={
+    province:"buenos aires",
+    rango:[1,5],
+    order:"ASC"
+
+}
+
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 //__c:CREATE r READ u UPDATE d DELETE___________________________________________________________________________________________post activity
