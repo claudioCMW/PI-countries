@@ -6,15 +6,6 @@ const { Countrie, ActTur } = require("../db.js");
 // Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
-
-const obj={
-    province:"buenos aires",
-    rango:[1,5],
-    order:"ASC"
-
-}
-
-
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 //__c:CREATE r READ u UPDATE d DELETE___________________________________________________________________________________________post activity
@@ -33,6 +24,8 @@ router.post("/activity", async (req, res, next) => {
       },
     });
   });
+
+
 }catch(e){
     next(e);
 }
