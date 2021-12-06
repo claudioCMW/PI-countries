@@ -16,5 +16,4 @@
 <li>PostGres</li>
 <li>Dotenv</li>
 <li>Nodemon</li>
-
 </ul>
